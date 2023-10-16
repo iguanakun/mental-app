@@ -1,7 +1,7 @@
 class Temptation < ApplicationRecord
   validate :required_either_columns
   belongs_to :user
-  # encrypts :event, :talk, :cost, :get_out
+  encrypts :event, :talk, :cost, :get_out
 
   private
 

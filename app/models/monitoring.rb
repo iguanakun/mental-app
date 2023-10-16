@@ -1,7 +1,7 @@
 class Monitoring < ApplicationRecord
   validate :required_either_columns
   belongs_to :user
-  # encrypts :fact, :mind, :feel, :body, :behavior
+  encrypts :fact, :mind, :feel, :body, :behavior
 
   private
 
