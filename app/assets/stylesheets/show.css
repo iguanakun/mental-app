@@ -1,0 +1,14 @@
+.monitor-show__btn{
+  width: 160px;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: #cccccc;
+  border-radius: 16px;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

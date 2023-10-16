@@ -1,0 +1,52 @@
+.monitor-main{
+  width: 880px;
+  height: calc(1600px - 56px - 56px); /* 画面全体の高さ-ヘッダー-フッター */
+  margin-left: calc(280px + 36px);
+}
+
+.monitor-contents{
+  width: 880px;
+  margin-bottom: 32px;
+}
+
+.monitor-wrapper{
+  display: flex;
+}
+
+.item-circle{
+  background-color: #aef5a3;
+  width: 24px;
+  height: 24px;
+  border-radius: 16px;
+  margin: 4px 8px 16px 0;
+}
+
+.monitor-item{
+  font-size: 24px;
+}
+
+.monitor-info{
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.monitor-text{
+  width: calc(808px - 16px * 2);
+  border-radius: 8px;
+  border: solid 1px #cccccc;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.monitor-btn{
+  width: 808px;
+  height: 56px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  border-radius: 16px;
+  border: none;
+  background-color: #4FE358;
+  margin-top: 32px;
+  cursor: pointer;
+}

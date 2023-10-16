@@ -1,0 +1,40 @@
+<%= render "shared/header" %>
+<%= render "shared/header-margin" %>
+
+<div class="monitor-lists">
+  <div class="monitor-list">
+    <div class="monitor-list-upper">
+      <div class="monitor-list__date"><%= @temptation.created_at.strftime("%Y/%m/%d %H:%M") %></div>
+      <div class="monitor-list-more">
+        <i class="fa-solid fa-chevron-down" style="color: #b9b9b9;"></i>
+        <ul class="monitor-list-more__items">
+          <%= link_to edit_temptation_path(@temptation.id) do %>
+          <li><i class="fa-solid fa-pen" aria-hidden="true"></i> 編集</li>
+          <% end %>
+          <%= link_to temptation_path(@temptation.id), data:{ turbo_method: :delete } do %>
+          <li><i class="fa-regular fa-trash-can" aria-hidden="true"></i> 削除</li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">思考に心を奪われた状況</div>
+      <div class="monitor-list-text"><%= @temptation.event %></div>
+    </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">思考はあなたを夢中にさせようと、何を言いましたか？　何をしましたか？</div>
+      <div class="monitor-list-text"><%= @temptation.talk %></div>
+    </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">思考に夢中になった時、あなたの行動はどう変わりましたか？<br>
+        そのためにどんな代償を払いましたか？</div>
+      <div class="monitor-list-text"><%= @temptation.cost %></div>
+    </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">その状態から抜け出すことはできましたか？　どうやって抜け出しましたか？</div>
+      <div class="monitor-list-text"><%= @temptation.get_out %></div>
+    </div>
+  </div>
+
+  <%= link_to "一覧にもどる", lists_temptations_path, class:"monitor-show__btn" %>
+</div>

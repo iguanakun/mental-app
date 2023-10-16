@@ -1,0 +1,2 @@
+module TemptationsHelper
+end

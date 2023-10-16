@@ -1,24 +1,44 @@
-# README
+# データベース設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# テーブル設計
 
-Things you may want to cover:
+## users テーブル
 
-* Ruby version
+| Column             | Type   | Options                   |
+| ------------------ | ------ | ------------------------- |
+| email              | string | null: false, unique: true |
+| encrypted_password | string | null: false               |
 
-* System dependencies
+### Association
 
-* Configuration
+- has_many :monitorings
+- has_many :temptations
 
-* Database creation
+## monitorings テーブル
 
-* Database initialization
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| fact       | text       |                                |
+| mind       | text       |                                |
+| feel       | text       |                                |
+| body       | text       |                                |
+| behavior   | text       |                                |
+| user       | references | null: false, foreign_key: true |
 
-* How to run the test suite
+### Association
 
-* Services (job queues, cache servers, search engines, etc.)
+- belongs_to :user
 
-* Deployment instructions
+## temptations テーブル
 
-* ...
+| Column     | Type       | Options                        |
+| ---------- | ---------- | ------------------------------ |
+| event      | text       |                                |
+| talk       | text       |                                |
+| pay_price  | text       |                                |
+| get_out    | text       |                                |
+| user       | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user

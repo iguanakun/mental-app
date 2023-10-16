@@ -1,0 +1,90 @@
+.monitor-lists{
+  width: 880px;
+  margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.monitor-list{
+  width: calc(808px - 24px - 24px); /* 左右paddingをマイナス */
+  margin-bottom: 40px;
+  border-radius: 16px;
+  border: solid 1px #cccccc;
+  padding: 16px 24px 24px 24px;
+  position: relative;
+}
+
+#lists .monitor-list:hover{
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.monitor-list-upper{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+
+.monitor-list__date{
+  width: 144px;
+  height: 16px;
+  font-size: 12px;
+}
+
+.monitor-list-more{
+  cursor: pointer;
+  width: 80px;
+  height: 32px;
+  text-align: right;
+  position: relative;
+}
+
+.monitor-list-more:hover .monitor-list-more__items {
+  display: block;
+}
+
+.monitor-list-more__items {
+  text-align: left;
+  width: 80px;
+  font-size: 12px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+  position: absolute;
+  display: none;
+}
+
+.monitor-list-more__items li {
+  border-bottom: 1px solid #ddd;
+  padding: 8px;
+}
+
+.monitor-list-more__items li:last-child {
+  border-bottom: 0;
+}
+
+.monitor-list-more__items li:hover {
+  background-color: #57C3E9;
+  color: #fff;
+}
+
+.monitor-list-content{
+  margin: 0 8px 10px;
+}
+
+.monitor-list-item{
+  width: 730px;
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.monitor-list-text{
+  width: 730px;
+  background-color: rgba(174, 245, 163, 0.3);
+  border-radius: 8px;
+  border: none; 
+  font-size: 14px;
+  padding: 8px;
+}

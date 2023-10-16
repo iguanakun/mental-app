@@ -1,0 +1,54 @@
+<%= render "shared/header" %>
+
+
+<div class="hero">
+  <%= image_tag "hero.jpg", class:"hero-image" %>
+  <div class="hero-info">
+    <div class="hero-info__title">自分でできる心理療法</div>
+    <div class="hero-info__message">
+      ACT（アクセプタンス&コミットメント・セラピー）による<br>
+      ストレスとの上手なつきあい方
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="main-menu">
+    <div class="main-menu__square"></div>
+    <div class="main-menu__title">エクササイズ</div>
+  </div>
+  <div class="main-contents">
+    <div class="main-contents-wrapper">
+      <div class="main-item__circle"></div>
+      <div class="main-contents__title">悩みを受け止める</div>
+    </div>
+    <div class="main-contents-info">
+      <div class="main-contents__text">
+      いやなことがあった時、悩むのは当たり前です。<br>
+      認知行動療法の「モニタリング」を使って、感情をメモに書き出してみましょう。
+      </div>
+      <%= link_to "エクササイズをする", new_monitoring_path, class:"main-contents__btn" %>
+    </div>
+  </div>
+  <div class="main-contents">
+    <div class="main-contents-wrapper">
+      <div class="main-item__circle"></div>
+      <div class="main-contents__title">厄介な思考に対処する</div>
+    </div>
+    <div class="main-contents-info">
+      <div class="main-contents__text">
+        習慣を手放したい時、新しいことをやる時。<br>
+        人間は変化を避けるための理由を考えるのが得意です。<br>
+        「理由づけ」マシンとなり、現状を変えられない、変えたくない理由を大量生産します。<br>
+        厄介な思考と少し距離を置いて、うまく対処するためのスキルを身につけましょう。<br>
+        <span style="font-size: 11px; color: #b9b9b9; font-style: italic;">
+          出典）著:ラス・ハリス, 監訳:武藤 崇, よくわかるACT　明日からつかえるACT入門, 星和書店, 2012年
+        </span>
+      </div>
+
+      <%= link_to "エクササイズをする", new_temptation_path, class:"main-contents__btn" %>
+    </div>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_for :users
+  
+  root to:"monitorings#index"
+  resources :monitorings do
+    collection do
+      get 'lists'
+    end
+  end
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  resources :temptations, except: [:index] do
+    collection do
+      get 'lists'
+    end
+  end
 end
