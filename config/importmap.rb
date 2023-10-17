@@ -8,4 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "navbar", to: "navbar.js"
 # pin "meatball", to: "meatball.js"
 pin "vue", to: "vue--dist--vue.esm-browser.js.js" # @3.3.4
-pin "hello_vue", to: "hello_vue.js" # @3.3.4
+pin "dropdown", to: "dropdown.js"
