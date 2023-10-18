@@ -35,7 +35,7 @@
 | ---------- | ---------- | ------------------------------ |
 | event      | text       |                                |
 | talk       | text       |                                |
-| pay_price  | text       |                                |
+| cost       | text       |                                |
 | get_out    | text       |                                |
 | user       | references | null: false, foreign_key: true |
 
