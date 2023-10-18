@@ -69,7 +69,7 @@ a{
 }
 
 .navbar-memo{
-  width: 200px;
+  width: 166px;
   position: absolute;
   background-color: #ffffff;
   top: 56px;
@@ -81,7 +81,7 @@ a{
 }
 
 #navbar-pulldown02.navbar-memo{
-  width: 200px;
+  width: 166px;
   position: absolute;
   background-color: #ffffff;
   top: 56px;
@@ -94,7 +94,7 @@ a{
 
 .pulldown-list{
   border-bottom: 1px solid #ccc; 
-  padding:10px 0 10px 28px;
+  padding:10px 0 10px 20px;
 }
 
 .pulldown-list:hover{
