@@ -1,56 +1,42 @@
-function dropdown (pullDownButton, pullDownParents){
-  pullDownButton.addEventListener('mouseout', function(){
-    pullDownButton.removeAttribute("style")
+function dropdown (button_id, lists_id, nav_target, bgcolor){
+  // ドロップダウンボタンの取得
+  const pullDownButton = document.getElementById(button_id);
+  // ドロップダウンリストの取得
+  const pullDownLists = document.getElementById(lists_id);
+
+  // hoverで背景色を変更
+  pullDownButton.addEventListener('mouseover', function(){
+    pullDownButton.setAttribute("style", `background-color:${bgcolor};`)
   })
-  pullDownButton.addEventListener('click', function(e) {
-    // プルダウメニューの表示と非表示の設定
-    if (pullDownParents.style.display == 'block') {
-      pullDownParents.style.display = 'none';
+  pullDownButton.addEventListener('mouseout', function(){
+    pullDownButton.removeAttribute("style");
+  })
+
+  // ドロップダウンメニューの表示と非表示の設定
+  pullDownButton.addEventListener('click', function() {
+    if (pullDownLists.style.display == 'block') {
+      pullDownLists.style.display = 'none';
     } else {
-      pullDownParents.style.display = 'block';
+      pullDownLists.style.display = 'block';
     }
-    
-    // クリックがプルダウンボタン内で伝播しないようにする
-    e.stopPropagation();
   });
 
   // ドキュメント全体にクリックイベントハンドラを追加
-  document.addEventListener('click', function() {
-    // プルダウンメニューを非表示にする
-    pullDownParents.style.display = 'none';
-  });
-
-  // プルダウンメニュー内のクリックがドキュメント全体に伝播しないようにする
-  pullDownParents.addEventListener('click', function(e) {
-    e.stopPropagation();
+  document.addEventListener('click', function(e) {
+    // メニューの枠外をクリック時、メニューを閉じる
+    if(e.target.closest(nav_target) === null) {
+      pullDownLists.style.display = 'none';
+    }
   });
 };
 
 function navbar (){
-  /****************************
-    エクササイズメニューの開閉
-  *****************************/
-  const pullDownButton = document.getElementById("navbar-items")
-  const pullDownParents = document.getElementById("navbar-pulldown");
-  
-  pullDownButton.addEventListener('mouseover', function(){
-    pullDownButton.setAttribute("style", "background-color:#96dc78;")
-  })
-
-  dropdown (pullDownButton, pullDownParents);
-
-  /****************************
-    メモ一覧メニューの開閉
-  *****************************/
-  const pullDownButton02 = document.getElementById("navbar-items02")
-  const pullDownParents02 = document.getElementById("navbar-pulldown02");
-  
-  pullDownButton02.addEventListener('mouseover', function(){
-    pullDownButton02.setAttribute("style", "background-color:#e5e5e5;")
-  })
-
-  dropdown (pullDownButton02, pullDownParents02);
-  
+  /* エクササイズメニューの開閉 */
+  dropdown ('navbar-items', 'navbar-pulldown','#navbar01','#96dc78');
+  /* メモ一覧メニューの開閉 */
+  dropdown ('navbar-items02', 'navbar-pulldown02','#navbar02','#e5e5e5');
 };
- 
-window.addEventListener('turbo:load', navbar);
+
+// window.addEventListener('turbo:load', navbar);
+window.addEventListener('load', navbar);
+window.addEventListener('turbo:render', navbar);
