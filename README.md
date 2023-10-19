@@ -1,44 +1,53 @@
+# アプリケーション名
+自分でできる心理療法
+
+# アプリケーション概要
+ACT（アクセプタンス&コミットメント・セラピー）心理療法を使い、セルフケアができる。
+
+# URL
+[https://mental-app.onrender.com](https://mental-app.onrender.com/)
+
+# テスト用アカウント
+- Basic認証ID：admin
+- Basic認証パスワード：mentalapp
+- メールアドレス：test@test.com
+- パスワード：test00
+
+# 利用方法
+## セルフケア
+- トップページのヘッダーからユーザー新規登録を行う。
+- 「エクササイズをする」ボタンを押し、各質問に沿って項目を入力する。
+
+# アプリケーションを作成した背景
+近頃「モヤモヤする力」が注目されている。
+ビジネスシーンでは結論を出すことが重要視される。
+この延長線上で、日常生活でも答えを出すことが求められる面がある。
+しかし、人生における生き方や人間関係、恋愛などの悩みは答えが出ない問題である。
+答えが出ない問題に結論を急がず、「悩むのは当たり前」という前提で、心理療法を通じて問題を自己分析する力を身につけたい、という思いからこのアプリを開発した。
+
+# 実装予定の機能
+今後タグ機能、Googleアカウント連携機能を実装予定。
+
 # データベース設計
+[![Image from Gyazo](https://i.gyazo.com/8ba632ccc46e620708e7600979c71f4e.png)](https://gyazo.com/8ba632ccc46e620708e7600979c71f4e)
 
-# テーブル設計
+# 画面遷移図
+[![Image from Gyazo](https://i.gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc.png)](https://gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc)
 
-## users テーブル
+# 開発環境
+- フロントエンド：HTML/CSS、JavaScript
+- バックエンド：Ruby on Rails
+- テスト：Rspec
 
-| Column             | Type   | Options                   |
-| ------------------ | ------ | ------------------------- |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false               |
+# ローカルでの動作方法
+以下のコマンドを順に実行。
 
-### Association
+```ruby
+% git clone https://github.com/iguanakun/mental-app.git
+% cd mental-app
+% bundle install
+```
 
-- has_many :monitorings
-- has_many :temptations
-
-## monitorings テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| fact       | text       |                                |
-| mind       | text       |                                |
-| feel       | text       |                                |
-| body       | text       |                                |
-| behavior   | text       |                                |
-| user       | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
-
-## temptations テーブル
-
-| Column     | Type       | Options                        |
-| ---------- | ---------- | ------------------------------ |
-| event      | text       |                                |
-| talk       | text       |                                |
-| cost       | text       |                                |
-| get_out    | text       |                                |
-| user       | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :user
+# 工夫したポイント
+- トップページのエクササイズの文章は寄り添うような言葉、かつわかりやすさを考慮し、クリックしてもらいやすさを意識した。
+- 重要な個人情報を扱うので、セキュリティ対策としてRails 7のActiveRecordEncryptionを利用し、データベースのデータを暗号化した。
