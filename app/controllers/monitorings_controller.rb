@@ -44,6 +44,10 @@ class MonitoringsController < ApplicationController
     @monitorings = current_user.monitorings.order("created_at DESC")
   end
 
+  def search
+    @monitorings = Monitoring.search(params[:keyword])
+  end
+  
   private
 
   def monitoring_params

@@ -3,6 +3,14 @@ class Monitoring < ApplicationRecord
   belongs_to :user
   encrypts :fact, :mind, :feel, :body, :behavior
 
+  def self.search(search)
+    if search != ""
+      Monitoring.where('fact LIKE(?)', "%#{search}%")
+    else
+      Monitoring.includes(:user)
+    end
+  end
+  
   private
 
   def required_either_columns
