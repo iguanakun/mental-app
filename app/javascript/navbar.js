@@ -1,8 +1,8 @@
 function dropdown (button_id, lists_id, nav_target, bgcolor){
   // ドロップダウンボタンの取得
-  const pullDownButton = document.getElementById(`${button_id}`);
+  const pullDownButton = document.getElementById(button_id);
   // ドロップダウンリストの取得
-  const pullDownLists = document.getElementById(`${lists_id}`);
+  const pullDownLists = document.getElementById(lists_id);
 
   // hoverで背景色を変更
   pullDownButton.addEventListener('mouseover', function(){
@@ -36,6 +36,7 @@ function navbar (){
   /* メモ一覧メニューの開閉 */
   dropdown ('navbar-items02', 'navbar-pulldown02','#navbar02','#e5e5e5');
 };
- 
-window.addEventListener('turbo:load', navbar);
+
+// window.addEventListener('turbo:load', navbar);
+window.addEventListener('load', navbar);
 window.addEventListener('turbo:render', navbar);
