@@ -29,7 +29,7 @@ ACT（アクセプタンス&コミットメント・セラピー）心理療法�
 今後タグ機能、Googleアカウント連携機能を実装予定。
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/8ba632ccc46e620708e7600979c71f4e.png)](https://gyazo.com/8ba632ccc46e620708e7600979c71f4e)
+[![Image from Gyazo](https://i.gyazo.com/33b2c39d59fe513813cc3a3cd923e54a.png)](https://gyazo.com/33b2c39d59fe513813cc3a3cd923e54a)
 
 # 画面遷移図
 [![Image from Gyazo](https://i.gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc.png)](https://gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc)
