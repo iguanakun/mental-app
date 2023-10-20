@@ -34,6 +34,12 @@
       <div class="monitor-list-item">その状態から抜け出すことはできましたか？　どうやって抜け出しましたか？</div>
       <div class="monitor-list-text"><%= @temptation.get_out %></div>
     </div>
+    <% if @temptation.tags.first.present? %>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item", id="tag">タグ</div>
+      <div class="monitor-list-tag"><%= @temptation.tags.first&.tag_name %></div>
+    </div>
+    <% end %>
   </div>
 
   <%= link_to "一覧にもどる", lists_temptations_path, class:"monitor-show__btn" %>

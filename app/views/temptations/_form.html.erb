@@ -38,6 +38,13 @@
     <%= f.text_area :get_out, class:"monitor-text", placeholder:"" ,rows:"5" ,maxlength:"40000" %>
   </div>
 
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="monitor-item"><span style="font-size: 18px;">タグ</span></div>
+    </div>
+    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(任意)', maxlength:"50" %>
+  </div>
+
   <div class="monitor-btn-contents">
     <%= f.submit "作成する" ,class:"monitor-btn" %>
   </div>

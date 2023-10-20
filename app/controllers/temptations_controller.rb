@@ -4,14 +4,11 @@ class TemptationsController < ApplicationController
   before_action :set_temptation, only: [:show, :edit, :update]
 
   def new
-    # @temptation = Temptation.new
     @temptation_form = TemptationForm.new
   end
 
   def create
-    # @temptation = Temptation.new(temptation_params)
     @temptation_form = TemptationForm.new(temptation_form_params)
-    # if @temptation.save
     if @temptation_form.valid?
       @temptation_form.save
       redirect_to lists_temptations_path
@@ -26,6 +23,7 @@ class TemptationsController < ApplicationController
   def edit
     temptation_attributes = @temptation.attributes
     @temptation_form = TemptationForm.new(temptation_attributes)
+    @temptation_form.tag_name = @temptation.tags.first&.tag_name
   end
 
   def update
@@ -51,7 +49,7 @@ class TemptationsController < ApplicationController
   private
 
   def temptation_form_params
-    params.require(:temptation_form).permit(:event, :talk, :cost, :get_out).merge(user_id: current_user.id)
+    params.require(:temptation_form).permit(:event, :talk, :cost, :get_out, :tag_name).merge(user_id: current_user.id)
   end
 
   def move_to_index
