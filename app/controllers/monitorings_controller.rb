@@ -1,18 +1,19 @@
 class MonitoringsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   before_action :move_to_index, only: [:show, :edit, :update, :destroy]
-  before_action :set_monitoring, only: [:show, :edit]
+  before_action :set_monitoring, only: [:show, :edit, :update]
 
   def index
   end
 
   def new
-    @monitoring = Monitoring.new
+    @monitoring_form = MonitoringForm.new
   end
 
   def create
-    @monitoring = Monitoring.new(monitoring_params)
-    if @monitoring.save
+    @monitoring_form = MonitoringForm.new(monitoring_form_params)
+    if @monitoring_form.valid?
+      @monitoring_form.save
       redirect_to lists_monitorings_path
     else
       render :new, status: :unprocessable_entity
@@ -23,11 +24,15 @@ class MonitoringsController < ApplicationController
   end
 
   def edit
+    # @monitoringから情報をハッシュとして取り出し、@monitoring_formとしてインスタンス生成する
+    monitoring_attributes = @monitoring.attributes
+    @monitoring_form = MonitoringForm.new(monitoring_attributes)
   end
 
   def update
-    @monitoring = Monitoring.find(params[:id])
-    if @monitoring.update(monitoring_params)
+    @monitoring_form = MonitoringForm.new(monitoring_form_params)
+    if @monitoring_form.valid?
+      @monitoring_form.update(monitoring_form_params, @monitoring)
       redirect_to lists_monitorings_path
     else
       render :edit, status: :unprocessable_entity
@@ -50,8 +55,8 @@ class MonitoringsController < ApplicationController
   
   private
 
-  def monitoring_params
-    params.require(:monitoring).permit(:fact, :mind, :feel, :body, :behavior).merge(user_id: current_user.id)
+  def monitoring_form_params
+    params.require(:monitoring_form).permit(:fact, :mind, :feel, :body, :behavior).merge(user_id: current_user.id)
   end
 
   def move_to_index
