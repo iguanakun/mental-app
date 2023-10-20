@@ -38,6 +38,15 @@
   font-size: 16px;
 }
 
+.tag-field{
+  width: calc((808px - 16px * 2) / 5);
+  margin-top: 8px;
+  border-radius: 8px;
+  border: solid 1px #cccccc;
+  padding: 8px;
+  font-size: 12px;
+}
+
 .monitor-btn{
   width: 808px;
   height: 56px;

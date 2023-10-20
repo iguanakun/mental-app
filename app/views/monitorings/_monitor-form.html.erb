@@ -45,8 +45,11 @@
     <%= f.text_area :behavior, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
   </div>
 
-  <div class="tag-field">
-    <%= f.text_field :tag_name, placeholder: 'add tags' %>
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="monitor-item"><span style="font-size: 18px;">タグ</span></div>
+    </div>
+    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(任意)', maxlength:"50" %>
   </div>
 
   <div class="monitor-btn-contents">
