@@ -1,5 +1,7 @@
 class Monitoring < ApplicationRecord
   # validate :required_either_columns
+  has_many :monitoring_tag_relations
+  has_many :tags, through: :monitoring_tag_relations
   belongs_to :user
   encrypts :fact, :mind, :feel, :body, :behavior
 

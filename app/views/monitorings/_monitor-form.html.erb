@@ -45,6 +45,10 @@
     <%= f.text_area :behavior, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
   </div>
 
+  <div class="tag-field">
+    <%= f.text_field :tag_name, placeholder: 'add tags' %>
+  </div>
+
   <div class="monitor-btn-contents">
     <%= f.submit "作成する" ,class:"monitor-btn" %>
   </div>

@@ -37,6 +37,10 @@
       <div class="monitor-list-item">行動</div>
       <div class="monitor-list-text"><%= @monitoring.behavior %></div>
     </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">タグ</div>
+      <div class="monitor-list-text"><%= @monitoring.tags.first&.tag_name %></div>
+    </div>
   </div>
 
   <%= link_to "一覧にもどる", lists_monitorings_path, class:"monitor-show__btn" %>

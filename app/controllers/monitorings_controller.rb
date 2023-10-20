@@ -56,7 +56,7 @@ class MonitoringsController < ApplicationController
   private
 
   def monitoring_form_params
-    params.require(:monitoring_form).permit(:fact, :mind, :feel, :body, :behavior).merge(user_id: current_user.id)
+    params.require(:monitoring_form).permit(:fact, :mind, :feel, :body, :behavior, :tag_name).merge(user_id: current_user.id)
   end
 
   def move_to_index
