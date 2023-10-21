@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_16_105937) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_20_100732) do
+  create_table "monitoring_tag_relations", charset: "utf8", force: :cascade do |t|
+    t.bigint "monitoring_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["monitoring_id"], name: "index_monitoring_tag_relations_on_monitoring_id"
+    t.index ["tag_id"], name: "index_monitoring_tag_relations_on_tag_id"
+  end
+
   create_table "monitorings", charset: "utf8", force: :cascade do |t|
     t.text "fact"
     t.text "mind"
@@ -21,6 +30,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_105937) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_monitorings_on_user_id"
+  end
+
+  create_table "tags", charset: "utf8", force: :cascade do |t|
+    t.string "tag_name", null: false
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tags_on_user_id"
+  end
+
+  create_table "temptation_tag_relations", charset: "utf8", force: :cascade do |t|
+    t.bigint "temptation_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_temptation_tag_relations_on_tag_id"
+    t.index ["temptation_id"], name: "index_temptation_tag_relations_on_temptation_id"
   end
 
   create_table "temptations", charset: "utf8", force: :cascade do |t|
@@ -46,6 +72,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_16_105937) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "monitoring_tag_relations", "monitorings"
+  add_foreign_key "monitoring_tag_relations", "tags"
   add_foreign_key "monitorings", "users"
+  add_foreign_key "tags", "users"
+  add_foreign_key "temptation_tag_relations", "tags"
+  add_foreign_key "temptation_tag_relations", "temptations"
   add_foreign_key "temptations", "users"
 end

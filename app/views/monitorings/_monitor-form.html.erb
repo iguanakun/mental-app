@@ -1,5 +1,5 @@
 <div class="monitor-main">
-  <%= form_with model:monitoring, local: true do |f| %>
+  <%= form_with model:@monitoring_form, url: url, method: method, local: true do |f| %>
   <div class="monitor-contents">
     <div class="monitor-wrapper">
       <div class="item-circle"></div>
@@ -43,6 +43,13 @@
     </div>
       <div class="monitor-info">出来事があった時、どんな行動をしましたか？　例）気まずさで周囲を見渡す、暴言を言う</div>
     <%= f.text_area :behavior, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
+  </div>
+
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="monitor-item"><span style="font-size: 18px;">タグ</span></div>
+    </div>
+    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(任意)', maxlength:"50" %>
   </div>
 
   <div class="monitor-btn-contents">

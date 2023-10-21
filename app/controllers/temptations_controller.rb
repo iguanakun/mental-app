@@ -1,15 +1,16 @@
 class TemptationsController < ApplicationController
   before_action :authenticate_user!
   before_action :move_to_index, only: [:show, :edit, :update, :destroy]
-  before_action :set_temptation, only: [:show, :edit]
+  before_action :set_temptation, only: [:show, :edit, :update]
 
   def new
-    @temptation = Temptation.new
+    @temptation_form = TemptationForm.new
   end
 
   def create
-    @temptation = Temptation.new(temptation_params)
-    if @temptation.save
+    @temptation_form = TemptationForm.new(temptation_form_params)
+    if @temptation_form.valid?
+      @temptation_form.save
       redirect_to lists_temptations_path
     else
       render :new, status: :unprocessable_entity
@@ -20,11 +21,15 @@ class TemptationsController < ApplicationController
   end
 
   def edit
+    temptation_attributes = @temptation.attributes
+    @temptation_form = TemptationForm.new(temptation_attributes)
+    @temptation_form.tag_name = @temptation.tags.first&.tag_name
   end
 
   def update
-    @temptation = Temptation.find(params[:id])
-    if @temptation.update(temptation_params)
+    @temptation_form = TemptationForm.new(temptation_form_params)
+    if @temptation_form.valid?
+      @temptation_form.update(temptation_form_params, @temptation)
       redirect_to lists_temptations_path
     else
       render :edit, status: :unprocessable_entity
@@ -43,8 +48,8 @@ class TemptationsController < ApplicationController
 
   private
 
-  def temptation_params
-    params.require(:temptation).permit(:event, :talk, :cost, :get_out).merge(user_id: current_user.id)
+  def temptation_form_params
+    params.require(:temptation_form).permit(:event, :talk, :cost, :get_out, :tag_name).merge(user_id: current_user.id)
   end
 
   def move_to_index
