@@ -37,7 +37,11 @@
     <% if @temptation.tags.first.present? %>
     <div class="monitor-list-content">
       <div class="monitor-list-item", id="tag">タグ</div>
-      <div class="monitor-list-tag"><%= @temptation.tags.first&.tag_name %></div>
+      <div class="monitor-list-tags">
+        <% @temptation.tags.each do |tag| %>
+        <div class="monitor-list-tag"><%= tag.tag_name %></div>
+        <% end %>
+      </div>
     </div>
     <% end %>
   </div>
