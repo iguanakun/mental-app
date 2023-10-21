@@ -6,6 +6,7 @@ class MonitoringForm
     :tag_name
   )
 
+  validates :user_id, presence: true
   validate :required_either_columns
 
   def save

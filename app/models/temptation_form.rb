@@ -5,7 +5,8 @@ class TemptationForm
     :id, :created_at, :updated_at,
     :tag_name
   )
-
+  
+  validates :user_id, presence: true
   validate :required_either_columns
 
   def save
