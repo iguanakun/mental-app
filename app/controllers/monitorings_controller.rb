@@ -27,7 +27,13 @@ class MonitoringsController < ApplicationController
     # @monitoringから情報をハッシュとして取り出し、@monitoring_formとしてインスタンス生成する
     monitoring_attributes = @monitoring.attributes
     @monitoring_form = MonitoringForm.new(monitoring_attributes)
-    @monitoring_form.tag_name = @monitoring.tags.first&.tag_name
+    if @monitoring.tags.present?
+      tags = []
+      @monitoring.tags.each do |tag|
+        tags << tag.tag_name
+      end
+      @monitoring_form.tag_name = tags.join(' ')
+    end
   end
 
   def update

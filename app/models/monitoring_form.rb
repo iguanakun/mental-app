@@ -11,12 +11,15 @@ class MonitoringForm
   def save
     monitoring = Monitoring.create(fact: fact, mind: mind, feel: feel, body: body, behavior: behavior, user_id: user_id)
     if tag_name.present?
-      tag = Tag.where(tag_name: tag_name).first_or_initialize
-      if tag.id.nil?
-        tag.user_id = user_id;
+      input_tags = tag_name.split
+      input_tags.each do |item|
+        tag = Tag.where(tag_name: item).first_or_initialize
+        if tag.id.nil?
+          tag.user_id = user_id;
+        end
+        tag.save
+        MonitoringTagRelation.create(monitoring_id: monitoring.id, tag_id: tag.id)
       end
-      tag.save
-      MonitoringTagRelation.create(monitoring_id: monitoring.id, tag_id: tag.id)
     end
   end
 
@@ -25,16 +28,20 @@ class MonitoringForm
     monitoring.monitoring_tag_relations.destroy_all
 
     #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
-    tag_name = params.delete(:tag_name)
-
-    #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
-    tag = Tag.where(tag_name: tag_name).first_or_initialize if tag_name.present?
-    tag.user_id = user_id if tag.id.nil?
-
-    #タグを保存
-    tag.save if tag_name.present?
+    input_tags = params.delete(:tag_name).split
+    #monitoringをupdate
     monitoring.update(params)
-    MonitoringTagRelation.create(monitoring_id: monitoring.id, tag_id: tag.id) if tag_name.present?
+    if input_tags.present?
+      input_tags.each do |item|
+        #もしタグの情報がすでに保存されていればインスタンスを取得、無ければインスタンスを新規作成
+        tag = Tag.where(tag_name: item).first_or_initialize 
+        tag.user_id = user_id if tag.id.nil?
+
+        #タグを保存
+        tag.save
+        MonitoringTagRelation.create(monitoring_id: monitoring.id, tag_id: tag.id)
+      end
+    end
   end
 
   private
