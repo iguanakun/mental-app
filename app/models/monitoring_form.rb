@@ -29,7 +29,6 @@ class MonitoringForm
 
     #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
     input_tags = params.delete(:tag_name).split
-    #monitoringをupdate
     monitoring.update(params)
     if input_tags.present?
       input_tags.each do |item|

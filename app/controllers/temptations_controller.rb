@@ -23,7 +23,13 @@ class TemptationsController < ApplicationController
   def edit
     temptation_attributes = @temptation.attributes
     @temptation_form = TemptationForm.new(temptation_attributes)
-    @temptation_form.tag_name = @temptation.tags.first&.tag_name
+    if @temptation.tags.present?
+      tags = []
+      @temptation.tags.each do |tag|
+        tags << tag.tag_name
+      end
+      @temptation_form.tag_name = tags.join(' ')
+    end
   end
 
   def update
