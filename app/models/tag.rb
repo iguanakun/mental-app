@@ -6,4 +6,8 @@ class Tag < ApplicationRecord
   belongs_to :user
 
   validates :tag_name,  uniqueness: true
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["tag_name"]
+  end
 end

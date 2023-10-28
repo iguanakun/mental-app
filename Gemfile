@@ -77,6 +77,7 @@ end
 gem 'pry-rails'
 gem 'devise'
 gem 'rails-i18n'
+gem 'ransack'
 
 group :production do
   gem 'pg'
