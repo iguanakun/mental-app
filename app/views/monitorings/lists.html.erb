@@ -4,8 +4,11 @@
 <div class="monitor-lists" id="lists">
   <%= search_form_for @q, url: lists_monitorings_path, html: {id: "detailed-search-form"} do |f| %>
   <div class="tag-search-field">
+    <div class="icon">
+      <i class="fa-solid fa-magnifying-glass" style="color:#b9b9b9;"></i>
+    </div>
     <%#= f.text_field :tags_tag_name, placeholder: "\uf002 タグ", class:"fa search-field" %>
-    <%= f.text_field :tags_tag_name, placeholder: "\uf002 タグ", class:"search-field" %>
+    <%= f.text_field :tags_tag_name, placeholder: "タグ", class:"search-field" %>
     <div class="btn">
       <%= f.submit '検索' %>
     </div>

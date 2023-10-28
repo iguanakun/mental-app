@@ -95,20 +95,24 @@
   display: flex;
   justify-content: flex-end;
   font-size: 13px;
-  
+  position: relative;
+}
+
+.tag-search-field .icon{
+  position: absolute;
+  top: 4px;
+  right: 168px;
 }
 
 .tag-search-field .search-field{
+  width: 160px;
   border-radius: 8px;
   border: solid 1px #cccccc;
-  padding: 4px;
+  padding: 4px 4px 4px 24px;
   /* font-family: FontAwesome; */
-  font-weight: 300;
-  text-transform:none;
-}
-
-.fa{
-  text-transform:lowercase;
+  /* font-style: normal; */
+  /* font-weight: 300; */
+  /* text-transform:lowercase; */
 }
 
 .tag-search-field .btn{
