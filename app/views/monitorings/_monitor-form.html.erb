@@ -49,7 +49,17 @@
     <div class="monitor-wrapper">
       <div class="monitor-item"><span style="font-size: 18px;">タグ</span></div>
     </div>
-    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(任意)', maxlength:"50" %>
+    <!-- <div id="tag-checkboxs">
+    <%= f.collection_check_boxes(:tag_name, current_user.tags, :id, :tag_name) do |tag| %>
+      <div id="tag-checkbox">
+      <%= tag.label do %>
+        <%= tag.check_box %>
+        <%= tag.text %>
+      </div>
+      <% end %>
+    <% end %>
+    </div> -->
+    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(スペース区切りで複数追加)', maxlength:"50" %>
   </div>
 
   <div class="monitor-btn-contents">

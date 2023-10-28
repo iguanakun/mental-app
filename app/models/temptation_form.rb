@@ -12,7 +12,7 @@ class TemptationForm
   def save
     temptation = Temptation.create(event: event, talk: talk, cost: cost, get_out: get_out, user_id: user_id)
     if tag_name.present?
-      input_tags = tag_name.split
+      input_tags = tag_name.squish.split
       input_tags.each do |item|
         tag = Tag.where(tag_name: item).first_or_initialize
         if tag.id.nil?
@@ -29,7 +29,7 @@ class TemptationForm
     temptation.temptation_tag_relations.destroy_all
 
     #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
-    input_tags = params.delete(:tag_name).split
+    input_tags = params.delete(:tag_name).squish.split
     temptation.update(params)
     if input_tags.present?
       input_tags.each do |item|
