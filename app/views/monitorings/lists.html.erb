@@ -8,7 +8,7 @@
       <i class="fa-solid fa-magnifying-glass" style="color:#b9b9b9;"></i>
     </div>
     <%#= f.text_field :tags_tag_name, placeholder: "\uf002 タグ", class:"fa search-field" %>
-    <%= f.text_field :tags_tag_name, placeholder: "タグ", value: params[:q]&.dig(:tags_tag_name), class:"search-field" %>
+    <%= f.text_field :tags_tag_name, placeholder: "タグで絞り込み", value: params[:q]&.dig(:tags_tag_name), class:"search-field" %>
     <div class="btn">
       <%= f.submit '検索' %>
     </div>
