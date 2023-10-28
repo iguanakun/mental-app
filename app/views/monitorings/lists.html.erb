@@ -1,11 +1,16 @@
 <%= render "shared/header" %>
 <%= render "shared/header-margin" %>
 
-<!-- <%= form_with(url: search_monitorings_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: "検索", class: "search-input" %>
-  <%= form.submit "検索", class: "search-btn" %>
-<% end %> -->
-
 <div class="monitor-lists" id="lists">
+  <%= search_form_for @q, url: lists_monitorings_path, html: {id: "detailed-search-form"} do |f| %>
+  <div class="tag-search-field">
+    <%#= f.text_field :tags_tag_name, placeholder: "\uf002 タグ", class:"fa search-field" %>
+    <%= f.text_field :tags_tag_name, placeholder: "\uf002 タグ", class:"search-field" %>
+    <div class="btn">
+      <%= f.submit '検索' %>
+    </div>
+  </div>
+  <% end %>
+
   <%= render partial: 'list', collection: @monitorings %>
 </div>
