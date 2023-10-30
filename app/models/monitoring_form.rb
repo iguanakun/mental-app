@@ -12,7 +12,7 @@ class MonitoringForm
   def save
     monitoring = Monitoring.create(fact: fact, mind: mind, feel: feel, body: body, behavior: behavior, user_id: user_id)
     if tag_name.present?
-      input_tags = tag_name.split
+      input_tags = tag_name.squish.split
       input_tags.each do |item|
         tag = Tag.where(tag_name: item).first_or_initialize
         if tag.id.nil?
@@ -29,7 +29,7 @@ class MonitoringForm
     monitoring.monitoring_tag_relations.destroy_all
 
     #paramsの中のタグの情報を削除。同時に、返り値としてタグの情報を変数に代入
-    input_tags = params.delete(:tag_name).split
+    input_tags = params.delete(:tag_name).squish.split
     monitoring.update(params)
     if input_tags.present?
       input_tags.each do |item|

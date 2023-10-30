@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :monitorings do
     collection do
       get 'lists'
-      get 'search'
     end
   end
 

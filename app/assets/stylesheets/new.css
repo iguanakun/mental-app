@@ -38,8 +38,16 @@
   font-size: 16px;
 }
 
+#tag-checkboxs{
+  display: flex;
+}
+
+#tag-checkbox{
+  margin-right: 4px;
+}
+
 .tag-field{
-  width: calc((808px - 16px * 2) / 5);
+  width: calc((808px - 16px * 2) / 3.2);
   margin-top: 8px;
   border-radius: 8px;
   border: solid 1px #cccccc;

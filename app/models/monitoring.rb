@@ -13,6 +13,14 @@ class Monitoring < ApplicationRecord
     end
   end
   
+  def self.ransackable_attributes(auth_object = nil)
+    ["fact"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["tags"]
+  end
+
   # private
 
   # def required_either_columns

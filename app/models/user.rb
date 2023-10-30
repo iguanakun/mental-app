@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :monitorings
   has_many :temptations
+  has_many :tags
 end
