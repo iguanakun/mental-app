@@ -1,49 +1,6 @@
 <%= render "shared/header" %>
 <%= render "shared/header-margin" %>
 
-<div class="monitor-main">
-  <%= form_with model:@monitoring_form, url: step2_monitoring_steps_path, method: :get, local: true do |f| %>
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">出来事</div>
-    </div>
-      <div class="monitor-info">どんなことがありましたか？</div>
-    <%= f.text_area :title, class:"monitor-text", placeholder:"", maxlength:"400" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">感情</div>
-    </div>
-      <div class="monitor-info">どんな気分ですか？</div>
-    <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class:"select-box", id:"monitor-feel"}) %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">詳しい状況</div>
-    </div>
-      <div class="monitor-info">詳しい状況？</div>
-    <%= f.text_area :fact, class:"monitor-text", placeholder:"", rows:"5", maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">思考</div>
-    </div>
-      <div class="monitor-info">どんな考え/感覚/衝動が出てきましたか？</div>
-    <%= f.text_area :mind, class:"monitor-text", placeholder:"" ,rows:"5" ,maxlength:"40000" %>
-  </div>
-
-   <div class="monitor-btn-contents">
-    <%= f.submit "次へ" ,class:"monitor-btn" %>
-  </div>
-  <% end %>
-</div>
-
+<%= render partial: 'step1-form', locals: { url:step2_monitoring_steps_path, method: :get } %>
 
 <%= render "shared/footer" %>
