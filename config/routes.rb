@@ -14,11 +14,4 @@ Rails.application.routes.draw do
       get 'lists'
     end
   end
-
-  resources :monitoring_steps do
-    collection do
-      get 'step1'
-      get 'step2'
-    end
-  end
 end
