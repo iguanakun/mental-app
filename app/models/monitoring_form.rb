@@ -1,7 +1,7 @@
 class MonitoringForm
   include ActiveModel::Model
   attr_accessor(
-    :title, :feel_id, :fact, :mind, :distortion_id,
+    :title, :fact, :mind, 
     :why_correct, :why_doubt, :new_thought,
     :user_id,
     :id, :created_at, :updated_at,
@@ -12,7 +12,7 @@ class MonitoringForm
   validate :required_either_columns
 
   def save
-    monitoring = Monitoring.create(title: title, feel_id: feel_id, fact: fact, mind: mind, distortion_id: distortion_id, 
+    monitoring = Monitoring.create(title: title, fact: fact, mind: mind, 
                                    why_correct: why_correct, why_doubt: why_doubt, new_thought: new_thought, user_id: user_id)
     if tag_name.present?
       input_tags = tag_name.squish.split

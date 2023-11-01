@@ -78,7 +78,6 @@ gem 'pry-rails'
 gem 'devise'
 gem 'rails-i18n'
 gem 'ransack'
-gem 'active_hash'
 
 group :production do
   gem 'pg'
