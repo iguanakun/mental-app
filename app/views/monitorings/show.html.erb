@@ -23,7 +23,15 @@
     </div>
     <div class="monitor-list-content">
       <div class="monitor-list-item">感情</div>
-      <div class="monitor-list-text"><%= @monitoring.feel.name %></div>
+      <div class="monitor-list-text">
+        <% @monitoring.negative_feels&.each do |feel| %>
+          <%= feel.negative_feel_name %>　
+        <% end %>
+        <br>
+        <% @monitoring.positive_feels&.each do |feel| %>
+          <%= feel.positive_feel_name %>　
+        <% end %>
+      </div>
     </div>
     <div class="monitor-list-content">
       <div class="monitor-list-item">詳しい状況</div>
@@ -35,7 +43,11 @@
     </div>
     <div class="monitor-list-content">
       <div class="monitor-list-item">思考のゆがみ</div>
-      <div class="monitor-list-text"><%= @monitoring.distortion.name %></div>
+      <div class="monitor-list-text">
+        <% @monitoring.distortion_lists&.each do |item| %>
+          <%= item.distortion_name %>　
+        <% end %>
+      </div>
     </div>
     <div class="monitor-list-content">
       <div class="monitor-list-item">ゆがみのきっかけ</div>
