@@ -1,4 +1,7 @@
 class Feel < ActiveHash::Base
+  include ActiveHash::Associations
+  has_many :monitorings
+
   self.data = [
     { id: 0, name: '---' },
     { id: 1, name: '不安' },

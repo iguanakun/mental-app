@@ -3,6 +3,11 @@ class Monitoring < ApplicationRecord
   has_many :monitoring_tag_relations, dependent: :destroy
   has_many :tags, through: :monitoring_tag_relations
   belongs_to :user
+
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :feel
+  belongs_to :distortion
+
   encrypts :title, :fact, :mind, :why_correct, :why_doubt, :new_thought
 
   # def self.search(search)
