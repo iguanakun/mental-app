@@ -65,6 +65,7 @@ class MonitoringsController < ApplicationController
   end
 
   def lists
+    ### タグ検索 ###
     # params[:q]がnilではない且つ、params[:q][:name]がnilではないとき（商品名の欄が入力されているとき）
     # if params[:q] && params[:q][:name]と同じような意味合い
     if params[:q]&.dig(:tags_tag_name)
