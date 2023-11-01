@@ -9,7 +9,7 @@
       <div class="monitor-item">思考のゆがみ</div>
     </div>
       <div class="monitor-info">思考のゆがみがありますか？</div>
-    <%= f.collection_select(:distortion_id, Distortion.all, :id, :name, {}, {class:"select-box", id:"monitor-distortion"}) %>
+      <%= f.collection_check_boxes(:distortion_name, DistortionList.all, :id, :distortion_name, {}, {class:"select-box", id:"monitor-distortion"}) %>
   </div>
   
   <div class="monitor-contents">

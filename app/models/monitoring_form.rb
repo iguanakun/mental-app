@@ -5,6 +5,9 @@ class MonitoringForm
     :why_correct, :why_doubt, :new_thought,
     :user_id,
     :id, :created_at, :updated_at,
+    :negative_feel_name,
+    :positive_feel_name,
+    :distortion_name,
     :tag_name
   )
 
@@ -12,8 +15,8 @@ class MonitoringForm
   validate :required_either_columns
 
   def save
-    monitoring = Monitoring.create(title: title, fact: fact, mind: mind, 
-                                   why_correct: why_correct, why_doubt: why_doubt, new_thought: new_thought, user_id: user_id)
+    monitoring = Monitoring.create(title: title, fact: fact, mind: mind, why_correct: why_correct,
+                                   why_doubt: why_doubt, new_thought: new_thought, user_id: user_id)
     if tag_name.present?
       input_tags = tag_name.squish.split
       input_tags.each do |item|
@@ -25,6 +28,26 @@ class MonitoringForm
         MonitoringTagRelation.create(monitoring_id: monitoring.id, tag_id: tag.id)
       end
     end
+
+    # shift()で配列先頭の空欄を削除
+    if negative_feel_name&.shift() 
+      negative_feel_name.each do |id|
+        MonitoringNegativeFeel.create(monitoring_id: monitoring.id, negative_feel_id: id)
+      end
+    end
+
+    if positive_feel_name&.shift()
+      positive_feel_name.each do |id|
+        MonitoringPositiveFeel.create(monitoring_id: monitoring.id, negative_feel_id: id)
+      end
+    end
+
+    if distortion_name&.shift()
+      distortion_name.each do |id|
+        MonitoringDistortionRelation.create(monitoring_id: monitoring.id, distortion_list_id: id)
+      end
+    end
+
   end
 
   def update(params, monitoring)
