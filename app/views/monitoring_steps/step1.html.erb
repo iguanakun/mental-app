@@ -6,10 +6,28 @@
   <div class="monitor-contents">
     <div class="monitor-wrapper">
       <div class="item-circle"></div>
-      <div class="monitor-item">状況</div>
+      <div class="monitor-item">出来事</div>
     </div>
       <div class="monitor-info">どんなことがありましたか？</div>
-    <%= f.text_area :fact, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
+    <%= f.text_area :title, class:"monitor-text", placeholder:"", maxlength:"400" %>
+  </div>
+
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="item-circle"></div>
+      <div class="monitor-item">感情</div>
+    </div>
+      <div class="monitor-info">どんな気分ですか？</div>
+    <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class:"select-box", id:"monitor-feel"}) %>
+  </div>
+
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="item-circle"></div>
+      <div class="monitor-item">詳しい状況</div>
+    </div>
+      <div class="monitor-info">詳しい状況？</div>
+    <%= f.text_area :fact, class:"monitor-text", placeholder:"", rows:"5", maxlength:"40000" %>
   </div>
 
   <div class="monitor-contents">
@@ -21,35 +39,8 @@
     <%= f.text_area :mind, class:"monitor-text", placeholder:"" ,rows:"5" ,maxlength:"40000" %>
   </div>
 
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">感情</div>
-    </div>
-      <div class="monitor-info">どんな感情でしたか？　例）喜び、好奇心、愛、怒り、恐れ、悲しみ、罪悪感、動揺、嫌悪</div>
-    <%= f.text_area :feel, class:"monitor-text", id:"monitor-text__feel", placeholder:"" ,rows:"2" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">身体反応</div>
-    </div>
-      <div class="monitor-info">体にどんな反応がありましたか？　例）怒りで顔が熱い、恐怖で喉をしめつけられる</div>
-    <%= f.text_area :body, class:"monitor-text", placeholder:"" ,rows:"2" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">行動</div>
-    </div>
-      <div class="monitor-info">出来事があった時、どんな行動をしましたか？　例）気まずさで周囲を見渡す、暴言を言う</div>
-    <%= f.text_area :behavior, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-btn-contents">
-    <%= f.submit "作成する" ,class:"monitor-btn" %>
+   <div class="monitor-btn-contents">
+    <%= f.submit "次へ" ,class:"monitor-btn" %>
   </div>
   <% end %>
 </div>

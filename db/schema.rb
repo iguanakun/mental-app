@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_20_100732) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_31_084049) do
   create_table "monitoring_tag_relations", charset: "utf8", force: :cascade do |t|
     t.bigint "monitoring_id"
     t.bigint "tag_id"
@@ -21,14 +21,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_20_100732) do
   end
 
   create_table "monitorings", charset: "utf8", force: :cascade do |t|
-    t.text "fact"
-    t.text "mind"
-    t.text "feel"
-    t.text "body"
-    t.text "behavior"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "title"
+    t.integer "feel_id"
+    t.text "fact"
+    t.text "mind"
+    t.integer "distortion_id"
+    t.text "why_correct"
+    t.text "why_doubt"
+    t.text "new_thought"
     t.index ["user_id"], name: "index_monitorings_on_user_id"
   end
 
