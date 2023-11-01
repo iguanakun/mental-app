@@ -79,6 +79,7 @@ class MonitoringsController < ApplicationController
   def step2
     session[:title] = monitoring_form_params[:title]
     session[:feel_id] = monitoring_form_params[:feel_id]
+    session[:feel_id].shift() # 配列先頭の謎の空欄を削除
     session[:fact] = monitoring_form_params[:fact]
     session[:mind] = monitoring_form_params[:mind]
     @monitoring_form = MonitoringForm.new
@@ -89,8 +90,8 @@ class MonitoringsController < ApplicationController
   private
 
   def monitoring_form_params
-    params.require(:monitoring_form).permit(:title, :feel_id, :fact, :mind, :distortion_id,
-                                            :why_correct, :why_doubt, :new_thought).merge(user_id: current_user.id)
+    params.require(:monitoring_form).permit(:title, :fact, :mind, :distortion_id,
+                                            :why_correct, :why_doubt, :new_thought, feel_id: []).merge(user_id: current_user.id)
   end
 
   def move_to_index

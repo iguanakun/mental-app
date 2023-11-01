@@ -4,6 +4,8 @@ class Monitoring < ApplicationRecord
   has_many :tags, through: :monitoring_tag_relations
   belongs_to :user
 
+  serialize :feel_id, Array
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :feel
   belongs_to :distortion

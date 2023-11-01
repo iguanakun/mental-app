@@ -15,7 +15,7 @@
       <div class="monitor-item">感情</div>
     </div>
       <div class="monitor-info">どんな気分ですか？</div>
-    <%= f.collection_select(:feel_id, Feel.all, :id, :name, {}, {class:"select-box", id:"monitor-feel"}) %>
+    <%= f.collection_check_boxes(:feel_id, Feel.all, :id, :name, {}, {class:"select-box", id:"monitor-feel"}) %>
   </div>
 
   <div class="monitor-contents">
