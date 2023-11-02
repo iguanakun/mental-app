@@ -1,5 +1,5 @@
 <div class="monitor-main">
-  <%= form_with model:@monitoring_form, url: step2_monitorings_path, method: :get, local: true do |f| %>
+  <%= form_with model:@monitoring_form, url: url, method: :get, local: true do |f| %>
   <div class="monitor-contents">
     <div class="monitor-wrapper">
       <div class="item-circle"></div>
@@ -15,7 +15,7 @@
       <div class="monitor-item">感情</div>
     </div>
       <div class="monitor-info">どんな気分ですか？</div>
-    <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, {}, {class:"select-box", id:"monitor-feel"}) %>
+    <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name.map(&:id)) %>
   </div>
 
   <div class="monitor-contents">

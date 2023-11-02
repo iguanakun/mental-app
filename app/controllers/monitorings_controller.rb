@@ -1,7 +1,8 @@
 class MonitoringsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :move_to_index, only: [:show, :edit, :update, :destroy]
-  before_action :set_monitoring, only: [:show, :edit, :update]
+  before_action :move_to_index, only: [:show, :edit, :update, :destroy, :edit_step2]
+  before_action :set_monitoring, only: [:show, :edit, :update, :edit_step2]
+  before_action :set_step2, only: [:step2, :edit_step2]
 
   def index
   end
@@ -39,6 +40,10 @@ class MonitoringsController < ApplicationController
     # @monitoringから情報をハッシュとして取り出し、@monitoring_formとしてインスタンス生成する
     monitoring_attributes = @monitoring.attributes
     @monitoring_form = MonitoringForm.new(monitoring_attributes)
+    @monitoring_form.negative_feel_name = @monitoring&.negative_feels
+    @monitoring_form.positive_feel_name = @monitoring&.positive_feels
+    @monitoring_form.distortion_name = @monitoring&.distortion_lists
+
     if @monitoring.tags.present?
       tags = []
       @monitoring.tags.each do |tag|
@@ -50,8 +55,21 @@ class MonitoringsController < ApplicationController
 
   def update
     @monitoring_form = MonitoringForm.new(monitoring_form_params)
+    session_params ={ 
+      title: session[:title],
+      negative_feel_name: session[:negative_feel_name],
+      positive_feel_name: session[:positive_feel_name],
+      fact: session[:fact],
+      mind: session[:mind]
+    }
+    session.delete(:title)
+    session.delete(:negative_feel_name)
+    session.delete(:positive_feel_name)
+    session.delete(:fact)
+    session.delete(:mind)
+
     if @monitoring_form.valid?
-      @monitoring_form.update(monitoring_form_params, @monitoring)
+      @monitoring_form.update(monitoring_form_params, @monitoring, session_params)
       redirect_to lists_monitorings_path
     else
       render :edit, status: :unprocessable_entity
@@ -80,14 +98,11 @@ class MonitoringsController < ApplicationController
   end
   
   def step2
-    session[:title] = monitoring_form_params[:title]
-    session[:negative_feel_name] = monitoring_form_params[:negative_feel_name]
-    session[:positive_feel_name] = monitoring_form_params[:positive_feel_name]
-    session[:fact] = monitoring_form_params[:fact]
-    session[:mind] = monitoring_form_params[:mind]
-    @monitoring_form = MonitoringForm.new
   end
 
+  def edit_step2
+    @monitoring_form.distortion_name = @monitoring&.distortion_lists
+  end
 
 
   private
@@ -108,4 +123,12 @@ class MonitoringsController < ApplicationController
     @monitoring = Monitoring.find(params[:id])
   end
 
+  def set_step2
+    session[:title] = monitoring_form_params[:title]
+    session[:negative_feel_name] = monitoring_form_params[:negative_feel_name]
+    session[:positive_feel_name] = monitoring_form_params[:positive_feel_name]
+    session[:fact] = monitoring_form_params[:fact]
+    session[:mind] = monitoring_form_params[:mind]
+    @monitoring_form = MonitoringForm.new
+  end
 end
