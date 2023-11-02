@@ -15,9 +15,24 @@
       <div class="monitor-item">感情</div>
     </div>
       <div class="monitor-info">どんな気分ですか？</div>
-      <div id="negative-feels">ネガティブ</div>
-      <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name&.map(&:id)) %>
-      <div id="negative-feels">ポジティブ</div>
+      <div class="monitor-info__feels">
+        <label class="negative-box">
+        <div id="negative-feels">ネガティブ<i class="fa-solid fa-chevron-down" style="color: #b9b9b9;"></i></div>
+        <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name&.map(&:id)) do |feel| %>
+          <label class="checkbox" id="negative-group">
+            <%= feel.check_box do %>
+              <%= feel.check_box + feel.text %>
+            <% end %>
+              <%= feel.label {feel.text} %>
+          </label>
+          <!-- 10個目で改行を入れる -->
+          <% if feel.object.id == 10 %>
+          <div id="second-row"></div>
+          <% end %>
+        <% end %>
+        </label>
+      </div>
+      <div id="negative-feels">ポジティブ<i class="fa-solid fa-chevron-down" style="color: #b9b9b9;"></i></div>
       <%= f.collection_check_boxes(:positive_feel_name, PositiveFeel.all, :id, :positive_feel_name, checked: @monitoring_form.positive_feel_name&.map(&:id)) %>
   </div>
 

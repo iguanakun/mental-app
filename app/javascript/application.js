@@ -4,5 +4,6 @@ import "@hotwired/turbo-rails"
 // Turbo.session.drive = false
 import "controllers"
 import "navbar"
+import "feel-checkbox"
 // import "meatball"
 // import "dropdown"
