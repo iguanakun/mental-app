@@ -37,7 +37,7 @@ class MonitoringForm
 
     if positive_feel_name.present?
       positive_feel_name.each do |id|
-        MonitoringPositiveFeel.create(monitoring_id: monitoring.id, negative_feel_id: id)
+        MonitoringPositiveFeel.create(monitoring_id: monitoring.id, positive_feel_id: id)
       end
     end
 
