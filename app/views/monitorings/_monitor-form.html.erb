@@ -15,7 +15,7 @@
       <div class="monitor-item">感情</div>
     </div>
       <div class="monitor-info">どんな気分ですか？</div>
-    <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name.map(&:id)) %>
+    <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name&.map(&:id)) %>
   </div>
 
   <div class="monitor-contents">

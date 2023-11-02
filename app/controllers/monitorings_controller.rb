@@ -42,15 +42,6 @@ class MonitoringsController < ApplicationController
     @monitoring_form = MonitoringForm.new(monitoring_attributes)
     @monitoring_form.negative_feel_name = @monitoring&.negative_feels
     @monitoring_form.positive_feel_name = @monitoring&.positive_feels
-    @monitoring_form.distortion_name = @monitoring&.distortion_lists
-
-    if @monitoring.tags.present?
-      tags = []
-      @monitoring.tags.each do |tag|
-        tags << tag.tag_name
-      end
-      @monitoring_form.tag_name = tags.join(' ')
-    end
   end
 
   def update
@@ -98,10 +89,21 @@ class MonitoringsController < ApplicationController
   end
   
   def step2
+    @monitoring_form = MonitoringForm.new
   end
 
   def edit_step2
+    monitoring_attributes = @monitoring.attributes
+    @monitoring_form = MonitoringForm.new(monitoring_attributes)
     @monitoring_form.distortion_name = @monitoring&.distortion_lists
+
+    if @monitoring.tags.present?
+      tags = []
+      @monitoring.tags.each do |tag|
+        tags << tag.tag_name
+      end
+      @monitoring_form.tag_name = tags.join(' ')
+    end
   end
 
 
@@ -129,6 +131,5 @@ class MonitoringsController < ApplicationController
     session[:positive_feel_name] = monitoring_form_params[:positive_feel_name]
     session[:fact] = monitoring_form_params[:fact]
     session[:mind] = monitoring_form_params[:mind]
-    @monitoring_form = MonitoringForm.new
   end
 end

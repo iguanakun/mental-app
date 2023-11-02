@@ -29,8 +29,6 @@ class MonitoringForm
       end
     end
 
-    binding.pry
-
     if negative_feel_name.present?
       negative_feel_name.each do |id|
         MonitoringNegativeFeel.create(monitoring_id: monitoring.id, negative_feel_id: id)
