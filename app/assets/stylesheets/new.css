@@ -38,6 +38,7 @@
   font-size: 16px;
 }
 
+/* チェックボックスを非表示 */
 input[type=checkbox]{
   display: none;
 }
@@ -57,6 +58,23 @@ input[type=checkbox]{
   background-color:#e3ffba;
   font-size: 14px;
   padding: 4px 8px;
+}
+
+.monitor-info__dist{
+  display: flex;
+  flex-wrap: wrap; /* 要素が行を超えて折り返す */
+  justify-content: space-between;
+  align-items: center; /* 要素を垂直方向に中央に配置 */
+  width: calc( 808px + 8px );
+}
+
+#distortion.checkbox{
+  margin-bottom: 8px;
+  width: 376px;
+}
+
+.green-diamond{
+  color: #0eb457;
 }
 
 #second-row{

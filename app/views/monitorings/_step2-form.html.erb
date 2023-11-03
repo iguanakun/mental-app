@@ -5,15 +5,19 @@
       <div class="item-circle"></div>
       <div class="monitor-item">思考のゆがみ</div>
     </div>
-      <div class="monitor-info">思考のゆがみがありますか？</div>
+    <div class="monitor-info">思考のゆがみがありますか？</div>
+    <div class="monitor-info__dist">
       <%= f.collection_check_boxes(:distortion_name, DistortionList.all, :id, :distortion_name, checked: @monitoring_form.distortion_name&.map(&:id)) do |dist| %>
-        <label class="checkbox">
-          <%= dist.check_box do %>
-            <%= dist.check_box + dist.text %>
-          <% end %>
-            <%= dist.label {dist.text} %>
+        <label>
+          <div class="checkbox" id="distortion">
+            <%= dist.check_box do %>
+              <%= dist.check_box + dist.text %>
+            <% end %>
+            <%= tag.span('◆ ', class: 'green-diamond') + dist.text + tag.br + dist.object.info %>
+          </div>
         </label>
       <% end %>
+    </div>
   </div>
   
   <div class="monitor-contents">
