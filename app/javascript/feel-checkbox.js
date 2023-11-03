@@ -1,6 +1,10 @@
 function feel_checkbox() {
   // チェックボックス要素の取得
   const checkBoxes = document.getElementsByClassName('checkbox');
+  // // 感情の種類テキストの取得
+  // const feelTitles = document.getElementsByClassName('feel-kinds');
+  // // 感情メニューの取得
+  // const feelMenus = document.getElementsByClassName('feel-kinds__menu');
 
   for (let i = 0; i < checkBoxes.length; i++) {
     const checkBox = checkBoxes[i];
@@ -32,6 +36,25 @@ function feel_checkbox() {
       }
     });
   }
+
+  // for (let i = 0; i < feelTitles.length; i++) {
+  //   const feelTitle = feelTitles[i];
+  //   const feelMenu = feelMenus[i];
+ 
+  //   // 感情の種類テキストをクリックで開閉
+  //   feelTitle.addEventListener('click', function() {
+  //     if (feelMenu.style.display === 'block') {
+  //       console.log(feelMenu);
+  //       console.log(`${i}:none`);
+  //       feelMenu.style.display = 'none';
+  //     } else {
+  //       console.log(feelMenu);
+  //       console.log(`${i}:block`);
+  //       feelMenu.style.display = 'block';
+  //       console.log(feelMenu);
+  //     }
+  //   });
+  // }
 };
 
 window.addEventListener('load', feel_checkbox);

@@ -6,7 +6,14 @@
       <div class="monitor-item">思考のゆがみ</div>
     </div>
       <div class="monitor-info">思考のゆがみがありますか？</div>
-      <%= f.collection_check_boxes(:distortion_name, DistortionList.all, :id, :distortion_name, checked: @monitoring_form.distortion_name&.map(&:id)) %>
+      <%= f.collection_check_boxes(:distortion_name, DistortionList.all, :id, :distortion_name, checked: @monitoring_form.distortion_name&.map(&:id)) do |dist| %>
+        <label class="checkbox">
+          <%= dist.check_box do %>
+            <%= dist.check_box + dist.text %>
+          <% end %>
+            <%= dist.label {dist.text} %>
+        </label>
+      <% end %>
   </div>
   
   <div class="monitor-contents">

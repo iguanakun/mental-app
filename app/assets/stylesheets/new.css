@@ -42,7 +42,12 @@ input[type=checkbox]{
   display: none;
 }
 
-.negative-box{
+.monitor-info__feels{
+  margin-bottom: 16px;
+}
+
+.feel-kinds{
+  margin-bottom: 8px;
 }
 
 .checkbox{
