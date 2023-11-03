@@ -47,6 +47,10 @@ input[type=checkbox]{
   margin-bottom: 16px;
 }
 
+.monitor-info__feels label{
+  cursor: pointer;
+}
+
 .feel-kinds{
   margin-bottom: 8px;
 }
@@ -66,6 +70,10 @@ input[type=checkbox]{
   justify-content: space-between;
   align-items: center; /* 要素を垂直方向に中央に配置 */
   width: calc( 808px + 8px );
+}
+
+.monitor-info__dist label{
+  cursor: pointer;
 }
 
 #distortion.checkbox{
