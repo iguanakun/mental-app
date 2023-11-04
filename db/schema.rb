@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_03_064806) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_04_103742) do
   create_table "distortion_lists", charset: "utf8", force: :cascade do |t|
     t.string "distortion_name", null: false
     t.datetime "created_at", null: false
@@ -58,7 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_064806) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "title"
     t.text "fact"
     t.text "mind"
     t.text "why_correct"

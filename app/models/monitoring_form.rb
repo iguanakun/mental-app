@@ -1,8 +1,7 @@
 class MonitoringForm
   include ActiveModel::Model
   attr_accessor(
-    :title, :fact, :mind, 
-    :why_correct, :why_doubt, :new_thought,
+    :fact, :mind, :why_correct, :why_doubt, :new_thought,
     :user_id,
     :id, :created_at, :updated_at,
     :negative_feel_name,
@@ -15,8 +14,7 @@ class MonitoringForm
   validate :required_either_columns
 
   def save
-    monitoring = Monitoring.create(title: title, fact: fact, mind: mind, why_correct: why_correct,
-                                   why_doubt: why_doubt, new_thought: new_thought, user_id: user_id)
+    monitoring = Monitoring.create(fact: fact, mind: mind, why_correct: why_correct,why_doubt: why_doubt, new_thought: new_thought, user_id: user_id)
     if tag_name.present?
       input_tags = tag_name.squish.split
       input_tags.each do |item|
@@ -101,7 +99,7 @@ class MonitoringForm
   private
 
   def required_either_columns
-    return if ( title.present? || negative_feel_name.present? || positive_feel_name.present? || fact.present? || mind.present? ||
+    return if ( negative_feel_name.present? || positive_feel_name.present? || fact.present? || mind.present? ||
                 distortion_name.present? || why_correct.present? || why_doubt.present? || new_thought.present? )
     errors.add(:base, 'いずれかひとつの項目を入力してください。')
   end

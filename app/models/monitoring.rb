@@ -9,7 +9,7 @@ class Monitoring < ApplicationRecord
   has_many :distortion_lists, through: :monitoring_distortion_relations
   belongs_to :user
 
-  encrypts :title, :fact, :mind, :why_correct, :why_doubt, :new_thought
+  encrypts :fact, :mind, :why_correct, :why_doubt, :new_thought
 
   # def self.search(search)
   #   if search != ""

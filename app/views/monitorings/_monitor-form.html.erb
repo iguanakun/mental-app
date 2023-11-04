@@ -3,10 +3,10 @@
   <div class="monitor-contents">
     <div class="monitor-wrapper">
       <div class="item-circle"></div>
-      <div class="monitor-item">出来事</div>
+      <div class="monitor-item">詳しい状況</div>
     </div>
-      <div class="monitor-info">どんなことがありましたか？</div>
-    <%= f.text_area :title, class:"monitor-text", placeholder:"", maxlength:"400" %>
+      <div class="monitor-info">詳しい状況？</div>
+    <%= f.text_area :fact, class:"monitor-text", placeholder:"", rows:"5", maxlength:"40000" %>
   </div>
 
   <div class="monitor-contents">
@@ -49,15 +49,6 @@
           <% end %>
         <!-- </label> -->
       </div>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">詳しい状況</div>
-    </div>
-      <div class="monitor-info">詳しい状況？</div>
-    <%= f.text_area :fact, class:"monitor-text", placeholder:"", rows:"5", maxlength:"40000" %>
   </div>
 
   <div class="monitor-contents">

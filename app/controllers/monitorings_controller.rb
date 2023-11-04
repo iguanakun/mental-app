@@ -13,13 +13,11 @@ class MonitoringsController < ApplicationController
 
   def create
     @monitoring_form = MonitoringForm.new(monitoring_form_params)
-    @monitoring_form.title = session[:title]
     @monitoring_form.negative_feel_name = session[:negative_feel_name]
     @monitoring_form.positive_feel_name = session[:positive_feel_name]
     @monitoring_form.fact = session[:fact]
     @monitoring_form.mind = session[:mind]
 
-    session.delete(:title)
     session.delete(:negative_feel_name)
     session.delete(:positive_feel_name)
     session.delete(:fact)
@@ -47,13 +45,11 @@ class MonitoringsController < ApplicationController
   def update
     @monitoring_form = MonitoringForm.new(monitoring_form_params)
     session_params ={ 
-      title: session[:title],
       negative_feel_name: session[:negative_feel_name],
       positive_feel_name: session[:positive_feel_name],
       fact: session[:fact],
       mind: session[:mind]
     }
-    session.delete(:title)
     session.delete(:negative_feel_name)
     session.delete(:positive_feel_name)
     session.delete(:fact)
@@ -110,7 +106,7 @@ class MonitoringsController < ApplicationController
   private
 
   def monitoring_form_params
-    params.require(:monitoring_form).permit(:title, :fact, :mind, :why_correct, :why_doubt, :new_thought, :tag_name, negative_feel_name:[], 
+    params.require(:monitoring_form).permit(:fact, :mind, :why_correct, :why_doubt, :new_thought, :tag_name, negative_feel_name:[], 
                                             positive_feel_name:[], distortion_name:[]).merge(user_id: current_user.id)
   end
 
@@ -126,7 +122,6 @@ class MonitoringsController < ApplicationController
   end
 
   def set_step2
-    session[:title] = monitoring_form_params[:title]
     session[:negative_feel_name] = monitoring_form_params[:negative_feel_name]
     session[:positive_feel_name] = monitoring_form_params[:positive_feel_name]
     session[:fact] = monitoring_form_params[:fact]
