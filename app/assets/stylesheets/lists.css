@@ -89,6 +89,72 @@
   padding: 8px;
 }
 
+.monitor-statistics-list{
+  width: calc(808px - 24px - 24px); /* 左右paddingをマイナス */
+  margin-bottom: 36px;
+  border-radius: 16px;
+  border: none;
+  padding: 16px 24px;
+  background-color: rgba(174, 245, 163, 0.3);
+}
+
+.monitor-statistics-wrapper{
+  display: flex;
+  justify-content: space-between;
+  width: 808px;
+  font-size: 16px;
+}
+
+.monitor-statistics__negative{
+  background-color: #96dc78;
+  width: 304px;
+  height: 112px;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+.monitor-statistics__distortion{
+  background-color: #96dc78;
+  width: 304px;
+  height: 112px;
+  border-radius: 8px;
+  padding: 8px 16px;
+}
+
+ol {
+  counter-reset:number; /*数字をリセット*/
+  list-style-type: none!important; /*数字を一旦消す*/
+  padding:0.5em;
+}
+ol li {
+  position: relative;
+  line-height: 1.5em;
+  padding: 0.1em 0.5em 0.1em 24px;
+}
+
+ol li:before{
+  /* 以下数字をつける */
+  position: absolute;
+  counter-increment: number;
+  content: counter(number);
+  /*以下数字のデザイン変える*/
+  display:inline-block;
+  background: #0eb457;
+  color: white;
+  font-weight:bold;
+  font-size: 12px;
+  border-radius: 50%;
+  left: 0;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  text-align: center;
+  /*以下 上下中央寄せのため*/
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
 .tag-search-field{
   width: 808px;
   margin-bottom: 24px;

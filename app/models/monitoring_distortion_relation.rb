@@ -12,13 +12,15 @@ class MonitoringDistortionRelation < ApplicationRecord
     # distortion_list_idごとの出現回数をカウントして、降順でソート
     dist_id_counts = relevant_records.group(:distortion_list_id).count.sort_by { |_, v| -v }.to_h
 
-    # valueが最大のkeyを取得
-    max_count = dist_id_counts.values.max
-    max_id = dist_id_counts.key(max_count)
+    # 上位3つを取得
+    top_three = dist_id_counts.to_a[0, 3].to_h
 
-    # keyを持つレコードを取得
-    record = DistortionList.find_by(id: max_id)
+    rtn_record = []
+    top_three.keys.each do |key|
+      record = DistortionList.find_by(id: key)
+      rtn_record << { distortion_name: record.distortion_name, count: top_three[key] }
+    end
 
-    return { distortion_name: record.distortion_name, max_count: max_count }
+    return rtn_record
   end
 end

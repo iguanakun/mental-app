@@ -1,8 +1,44 @@
 <%= render "shared/header" %>
 <%= render "shared/header-margin" %>
 
-<!-- タグ検索フォーム -->
 <div class="monitor-lists" id="lists">
+  <!-- 統計 -->
+  <div class="monitor-statistics-list">
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">統計</div>
+      <div class="monitor-statistics-wrapper">
+        <div class="monitor-statistics__negative">
+          上位3つのネガティブな感情
+          <% negativeFeels = MonitoringNegativeFeel.negative_max_count(current_user) %>
+          <ol class="monitor-statistics__info">
+            <% negativeFeels.each do |list| %>
+              <li>
+                <%= list[:negative_feel_name] %>
+                :
+                <%= list[:count] %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+        <div class="monitor-statistics__distortion">
+          上位3つの思考のゆがみ
+          <% distortions = MonitoringDistortionRelation.distortion_max_count(current_user) %>
+          <ol class="monitor-statistics__info">
+            <% distortions.each do |list| %>
+              <li>
+                <%= list[:distortion_name] %>
+                :
+                <%= list[:count] %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+        <div class="monitor-statistics__distortion-info"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- タグ検索フォーム -->
   <%= search_form_for @q, url: lists_monitorings_path, html: {id: "detailed-search-form"} do |f| %>
   <div class="tag-search-field">
     <div class="icon">
