@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_04_103742) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_05_065815) do
   create_table "distortion_lists", charset: "utf8", force: :cascade do |t|
     t.string "distortion_name", null: false
     t.datetime "created_at", null: false
@@ -86,26 +86,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_04_103742) do
     t.index ["user_id"], name: "index_tags_on_user_id"
   end
 
-  create_table "temptation_tag_relations", charset: "utf8", force: :cascade do |t|
-    t.bigint "temptation_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["tag_id"], name: "index_temptation_tag_relations_on_tag_id"
-    t.index ["temptation_id"], name: "index_temptation_tag_relations_on_temptation_id"
-  end
-
-  create_table "temptations", charset: "utf8", force: :cascade do |t|
-    t.text "event"
-    t.text "talk"
-    t.text "cost"
-    t.text "get_out"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_temptations_on_user_id"
-  end
-
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -128,7 +108,4 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_04_103742) do
   add_foreign_key "monitoring_tag_relations", "tags"
   add_foreign_key "monitorings", "users"
   add_foreign_key "tags", "users"
-  add_foreign_key "temptation_tag_relations", "tags"
-  add_foreign_key "temptation_tag_relations", "temptations"
-  add_foreign_key "temptations", "users"
 end
