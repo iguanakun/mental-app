@@ -70,6 +70,10 @@ class MonitoringsController < ApplicationController
   end
 
   def lists
+    # 上位３つ表示機能のため、メソッドを実行
+    @negative_feels = MonitoringNegativeFeel.negative_max_count(current_user)
+    @distortions = MonitoringDistortionRelation.distortion_max_count(current_user)
+
     ### タグ検索 ###
     # params[:q]がnilではない且つ、params[:q][:name]がnilではないとき（商品名の欄が入力されているとき）
     # if params[:q] && params[:q][:name]と同じような意味合い

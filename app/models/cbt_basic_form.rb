@@ -46,7 +46,7 @@ class CbtBasicForm
     cbt_basic.cbt_basic_positive_feels.destroy_all
 
     #paramsの中の各情報を削除。同時に、返り値として各情報を変数に代入
-    input_tags = params.delete(:tag_name).squish.split
+    input_tags = params.delete(:tag_name).squish.split if params.delete(:tag_name).present?
     input_negative_feels = params.delete(:negative_feel_name)
     input_positive_feels = params.delete(:positive_feel_name)
 
