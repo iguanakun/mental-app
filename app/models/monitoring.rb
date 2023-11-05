@@ -10,14 +10,6 @@ class Monitoring < ApplicationRecord
   belongs_to :user
 
   encrypts :fact, :mind, :why_correct, :why_doubt, :new_thought
-
-  # def self.search(search)
-  #   if search != ""
-  #     Monitoring.where('fact LIKE(?)', "%#{search}%")
-  #   else
-  #     Monitoring.includes(:user)
-  #   end
-  # end
   
   def self.ransackable_attributes(auth_object = nil)
     ["fact"]

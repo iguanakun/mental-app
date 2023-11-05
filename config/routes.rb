@@ -11,4 +11,10 @@ Rails.application.routes.draw do
       get 'edit_step2'      
     end
   end
+
+  resources :cbt_basics, except: [:index] do
+    collection do
+      get 'lists'
+    end
+  end
 end

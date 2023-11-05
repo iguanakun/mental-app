@@ -19,25 +19,12 @@
             <% end %>
           </ol>
         </div>
-        <div class="monitor-statistics__distortion">
-          上位3つの思考のゆがみ
-          <ol class="monitor-statistics__info">
-            <% @distortions.each do |list| %>
-              <li>
-                <%= list[:distortion_name] %>
-                :
-                <%= list[:count] %>
-              </li>
-            <% end %>
-          </ol>
-        </div>
-        <div class="monitor-statistics__distortion-info"></div>
       </div>
     </div>
   </div>
 
   <!-- タグ検索フォーム -->
-  <%= search_form_for @q, url: lists_monitorings_path, html: {id: "detailed-search-form"} do |f| %>
+  <%= search_form_for @q, url: lists_cbt_basics_path, html: {id: "detailed-search-form"} do |f| %>
   <div class="tag-search-field">
     <div class="icon">
       <i class="fa-solid fa-magnifying-glass" style="color:#b9b9b9;"></i>
@@ -50,5 +37,5 @@
   <% end %>
 
     <!-- 一覧表示 -->
-  <%= render partial: 'list', collection: @monitorings %>
+  <%= render partial: 'list', collection: @cbt_basics %>
 </div>
