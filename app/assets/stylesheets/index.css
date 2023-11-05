@@ -107,3 +107,18 @@
   justify-content: center;
   align-items: center;
 }
+
+.main-course-link a:link {
+  color: #0000EE;
+  text-decoration: underline;
+ }
+ 
+ .main-course-link a:visited {
+  color: #551A8B;
+  text-decoration: underline;
+ }
+ 
+ .main-course-link a:active {
+  color: #FF0000;
+  text-decoration: underline;
+ }
