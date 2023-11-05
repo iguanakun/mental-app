@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :monitorings
-  has_many :temptations
+  has_many :cbt_basics
   has_many :tags
 end
