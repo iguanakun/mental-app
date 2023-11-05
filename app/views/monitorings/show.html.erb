@@ -18,25 +18,46 @@
       </div>
     </div>
     <div class="monitor-list-content">
-      <div class="monitor-list-item">状況</div>
+      <div class="monitor-list-item">詳しい状況</div>
       <div class="monitor-list-text"><%= @monitoring.fact %></div>
+    </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">感情</div>
+      <div class="monitor-list-text">
+        <% @monitoring.negative_feels&.each do |feel| %>
+          <%= feel.negative_feel_name %>　
+        <% end %>
+        <br>
+        <% @monitoring.positive_feels&.each do |feel| %>
+          <%= feel.positive_feel_name %>　
+        <% end %>
+      </div>
     </div>
     <div class="monitor-list-content">
       <div class="monitor-list-item">思考</div>
       <div class="monitor-list-text"><%= @monitoring.mind %></div>
     </div>
     <div class="monitor-list-content">
-      <div class="monitor-list-item">感情</div>
-      <div class="monitor-list-text"><%= @monitoring.feel %></div>
+      <div class="monitor-list-item">思考のゆがみ</div>
+      <div class="monitor-list-text">
+        <% @monitoring.distortion_lists&.each do |item| %>
+          <%= item.distortion_name %>　
+        <% end %>
+      </div>
     </div>
     <div class="monitor-list-content">
-      <div class="monitor-list-item">身体反応</div>
-      <div class="monitor-list-text"><%= @monitoring.body %></div>
+      <div class="monitor-list-item">ゆがみのきっかけ</div>
+      <div class="monitor-list-text"><%= @monitoring.why_correct %></div>
     </div>
     <div class="monitor-list-content">
-      <div class="monitor-list-item">行動</div>
-      <div class="monitor-list-text"><%= @monitoring.behavior %></div>
+      <div class="monitor-list-item">ゆがみに反する</div>
+      <div class="monitor-list-text"><%= @monitoring.why_doubt %></div>
     </div>
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">他</div>
+      <div class="monitor-list-text"><%= @monitoring.new_thought %></div>
+    </div>
+
     <% if @monitoring.tags.first.present? %>
     <div class="monitor-list-content">
       <div class="monitor-list-item", id="tag">タグ</div>

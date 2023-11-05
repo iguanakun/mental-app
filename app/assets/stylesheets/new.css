@@ -38,6 +38,57 @@
   font-size: 16px;
 }
 
+/* チェックボックスを非表示 */
+input[type=checkbox]{
+  display: none;
+}
+
+.monitor-info__feels{
+  margin-bottom: 16px;
+}
+
+.monitor-info__feels label{
+  cursor: pointer;
+}
+
+.feel-kinds{
+  margin-bottom: 8px;
+}
+
+.checkbox{
+  margin-right: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color:#e3ffba;
+  font-size: 14px;
+  padding: 4px 8px;
+}
+
+.monitor-info__dist{
+  display: flex;
+  flex-wrap: wrap; /* 要素が行を超えて折り返す */
+  justify-content: space-between;
+  align-items: center; /* 要素を垂直方向に中央に配置 */
+  width: calc( 808px + 8px );
+}
+
+.monitor-info__dist label{
+  cursor: pointer;
+}
+
+#distortion.checkbox{
+  margin-bottom: 8px;
+  width: 376px;
+}
+
+.green-diamond{
+  color: #0eb457;
+}
+
+#second-row{
+  margin-bottom: 8px;
+}
+
 #tag-checkboxs{
   display: flex;
 }

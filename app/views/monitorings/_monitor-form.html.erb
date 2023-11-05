@@ -1,21 +1,13 @@
 <div class="monitor-main">
-  <%= form_with model:@monitoring_form, url: url, method: method, local: true do |f| %>
+  <%= form_with model:@monitoring_form, url: url, method: :get, local: true do |f| %>
   <div class="monitor-contents">
     <div class="monitor-wrapper">
       <div class="item-circle"></div>
-      <div class="monitor-item">状況</div>
+      <div class="monitor-item">出来事</div>
     </div>
-      <div class="monitor-info">どんなことがありましたか？</div>
-    <%= f.text_area :fact, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">思考</div>
-    </div>
-      <div class="monitor-info">どんな考え/感覚/衝動が出てきましたか？</div>
-    <%= f.text_area :mind, class:"monitor-text", placeholder:"" ,rows:"5" ,maxlength:"40000" %>
+      <div class="monitor-info">最近あった、ストレスを感じた出来事はなんですか？<br>
+        いつ、どこで、誰と、何を、どのように、を具体的に記述してください。</div>
+    <%= f.text_area :fact, class:"monitor-text", placeholder:"", rows:"5", maxlength:"40000" %>
   </div>
 
   <div class="monitor-contents">
@@ -23,47 +15,53 @@
       <div class="item-circle"></div>
       <div class="monitor-item">感情</div>
     </div>
-      <div class="monitor-info">どんな感情でしたか？　例）喜び、好奇心、愛、怒り、恐れ、悲しみ、罪悪感、動揺、嫌悪</div>
-    <%= f.text_area :feel, class:"monitor-text", id:"monitor-text__feel", placeholder:"" ,rows:"2" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">身体反応</div>
-    </div>
-      <div class="monitor-info">体にどんな反応がありましたか？　例）怒りで顔が熱い、恐怖で喉をしめつけられる</div>
-    <%= f.text_area :body, class:"monitor-text", placeholder:"" ,rows:"2" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="item-circle"></div>
-      <div class="monitor-item">行動</div>
-    </div>
-      <div class="monitor-info">出来事があった時、どんな行動をしましたか？　例）気まずさで周囲を見渡す、暴言を言う</div>
-    <%= f.text_area :behavior, class:"monitor-text", placeholder:"" ,rows:"3" ,maxlength:"40000" %>
-  </div>
-
-  <div class="monitor-contents">
-    <div class="monitor-wrapper">
-      <div class="monitor-item"><span style="font-size: 18px;">タグ</span></div>
-    </div>
-    <!-- <div id="tag-checkboxs">
-    <%= f.collection_check_boxes(:tag_name, current_user.tags, :id, :tag_name) do |tag| %>
-      <div id="tag-checkbox">
-      <%= tag.label do %>
-        <%= tag.check_box %>
-        <%= tag.text %>
+      <div class="monitor-info__feels">
+        <div class="feel-kinds">ネガティブ<i class="fa-solid fa-chevron-down" style="color: #b9b9b9;"></i></div>
+        <!-- <label class="feel-kinds__menu" id="negative"> -->
+          <%= f.collection_check_boxes(:negative_feel_name, NegativeFeel.all, :id, :negative_feel_name, checked: @monitoring_form.negative_feel_name&.map(&:id), include_hidden: false) do |feel| %>
+          <label class="checkbox" id="negative-group">
+            <%= feel.check_box do %>
+              <%= feel.check_box + feel.text %>
+            <% end %>
+              <%= feel.label {feel.text} %>
+          </label>
+          <!-- 10個目で改行を入れる -->
+          <% if feel.object.id == 10 %>
+          <div id="second-row"></div>
+          <% end %>
+        <% end %>
+        <!-- </label> -->
       </div>
-      <% end %>
-    <% end %>
-    </div> -->
-    <%= f.text_field :tag_name, class:"tag-field", placeholder: 'タグをつける(スペース区切りで複数追加)', maxlength:"50" %>
+      <div class="monitor-info__feels">
+          <div class="feel-kinds">ポジティブ<i class="fa-solid fa-chevron-down" style="color: #b9b9b9;"></i></div>
+          <!-- <label class="feel-kinds__menu"  id="positive"> -->
+            <%= f.collection_check_boxes(:positive_feel_name, PositiveFeel.all, :id, :positive_feel_name, checked: @monitoring_form.positive_feel_name&.map(&:id), include_hidden: false) do |feel| %>
+            <label class="checkbox" id="positive-group">
+              <%= feel.check_box do %>
+                <%= feel.check_box + feel.text %>
+              <% end %>
+                <%= feel.label {feel.text} %>
+            </label>
+            <!-- 10個目で改行を入れる -->
+            <% if feel.object.id == 10 %>
+            <div id="second-row"></div>
+            <% end %>
+          <% end %>
+        <!-- </label> -->
+      </div>
   </div>
 
-  <div class="monitor-btn-contents">
-    <%= f.submit "作成する" ,class:"monitor-btn" %>
+  <div class="monitor-contents">
+    <div class="monitor-wrapper">
+      <div class="item-circle"></div>
+      <div class="monitor-item">思考</div>
+    </div>
+      <div class="monitor-info">頭に浮かんだ考えはありますか？</div>
+    <%= f.text_area :mind, class:"monitor-text", placeholder:"" ,rows:"5" ,maxlength:"40000" %>
+  </div>
+
+   <div class="monitor-btn-contents">
+    <%= f.submit "次へ" ,class:"monitor-btn" %>
   </div>
   <% end %>
 </div>

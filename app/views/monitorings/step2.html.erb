@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <%= render "shared/header-margin" %>
 
-<%= render partial: 'form', locals: {url: temptation_path(@temptation.id), method: :patch} %>
+<%= render partial: 'step2-form', locals: {url: monitorings_path, method: :post} %>
 
 <%= render "shared/footer" %>
