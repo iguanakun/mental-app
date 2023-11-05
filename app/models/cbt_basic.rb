@@ -1,0 +1,2 @@
+class CbtBasic < ApplicationRecord
+end

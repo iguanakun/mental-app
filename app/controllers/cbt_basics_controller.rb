@@ -1,0 +1,2 @@
+class CbtBasicsController < ApplicationController
+end

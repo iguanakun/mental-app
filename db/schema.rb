@@ -10,7 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_05_065815) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_05_071016) do
+  create_table "cbt_basic_negative_feels", charset: "utf8", force: :cascade do |t|
+    t.bigint "cbt_basic_id"
+    t.bigint "negative_feel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cbt_basic_id"], name: "index_cbt_basic_negative_feels_on_cbt_basic_id"
+    t.index ["negative_feel_id"], name: "index_cbt_basic_negative_feels_on_negative_feel_id"
+  end
+
+  create_table "cbt_basic_positive_feels", charset: "utf8", force: :cascade do |t|
+    t.bigint "cbt_basic_id"
+    t.bigint "positive_feel_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cbt_basic_id"], name: "index_cbt_basic_positive_feels_on_cbt_basic_id"
+    t.index ["positive_feel_id"], name: "index_cbt_basic_positive_feels_on_positive_feel_id"
+  end
+
+  create_table "cbt_basic_tag_relations", charset: "utf8", force: :cascade do |t|
+    t.bigint "cbt_basic_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cbt_basic_id"], name: "index_cbt_basic_tag_relations_on_cbt_basic_id"
+    t.index ["tag_id"], name: "index_cbt_basic_tag_relations_on_tag_id"
+  end
+
+  create_table "cbt_basics", charset: "utf8", force: :cascade do |t|
+    t.text "fact"
+    t.text "mind"
+    t.text "body"
+    t.text "behavior"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_cbt_basics_on_user_id"
+  end
+
   create_table "distortion_lists", charset: "utf8", force: :cascade do |t|
     t.string "distortion_name", null: false
     t.datetime "created_at", null: false
@@ -98,6 +136,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_05_065815) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "cbt_basic_negative_feels", "cbt_basics"
+  add_foreign_key "cbt_basic_negative_feels", "negative_feels"
+  add_foreign_key "cbt_basic_positive_feels", "cbt_basics"
+  add_foreign_key "cbt_basic_positive_feels", "positive_feels"
+  add_foreign_key "cbt_basic_tag_relations", "cbt_basics"
+  add_foreign_key "cbt_basic_tag_relations", "tags"
+  add_foreign_key "cbt_basics", "users"
   add_foreign_key "monitoring_distortion_relations", "distortion_lists"
   add_foreign_key "monitoring_distortion_relations", "monitorings"
   add_foreign_key "monitoring_negative_feels", "monitorings"

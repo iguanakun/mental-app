@@ -1,0 +1,2 @@
+class CbtBasicPositiveFeel < ApplicationRecord
+end
