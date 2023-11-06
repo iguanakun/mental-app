@@ -54,6 +54,7 @@
   border-radius: 3px;
   position: absolute;
   display: none;
+  list-style: none;
 }
 
 .monitor-list-more__items li {
