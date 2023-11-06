@@ -95,6 +95,7 @@ a{
 .pulldown-list{
   border-bottom: 1px solid #ccc; 
   padding:10px 0 10px 20px;
+  list-style: none;
 }
 
 .pulldown-list:hover{
