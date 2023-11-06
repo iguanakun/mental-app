@@ -17,4 +17,12 @@ Rails.application.routes.draw do
       get 'lists'
     end
   end
+
+  resources :work_care, only: [:index] do
+    collection do
+      get 'content1'
+      get 'content1/page1', to: 'work_care#page1'
+
+    end
+  end
 end

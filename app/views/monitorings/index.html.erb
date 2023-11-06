@@ -15,23 +15,38 @@
 <div class="main">
   <div class="main-menu">
     <div class="main-menu__square"></div>
-    <div class="main-menu__title">エクササイズ</div>
+    <div class="main-menu__title">コース</div>
   </div>
   <div class="main-contents">
     <div class="main-contents-wrapper">
       <div class="main-item__circle"></div>
-      <div class="main-contents__title">悩みを受け止める</div>
+      <div class="main-contents__title">仕事上の悩み</div>
     </div>
     <div class="main-contents-info">
       <div class="main-contents__text">
-      いやなことがあった時、悩むのは当たり前です。<br>
-      認知行動療法の「モニタリング」を使って、感情をメモに書き出してみましょう。
+        <ul>
+          <li class="main-course-link"><%= link_to "仕事上の失敗や怒られた経験に対処する", content1_work_care_index_path %></li>
+          <li>仕事に楽しさを見いだせない</li>
+          <li>人間関係の問題</li>
+          <li>部下の育成</li>
+        </ul>
       </div>
+    </div>
+  </div>
+
+  <div class="main-menu">
+    <div class="main-menu__square"></div>
+    <div class="main-menu__title">エクササイズ</div>
+  </div>
+  <div class="main-contents">
+    <div class="main-contents-info">
+      <span class="main-contents__text">
+      認知行動療法の基本モデルに沿ったワーク
+      </span>
+      <%= link_to "エクササイズをする", new_cbt_basic_path, class:"main-contents__btn" %>
+
+      基本モデルをベースに、思考の分析を深めるワーク
       <%= link_to "エクササイズをする", new_monitoring_path, class:"main-contents__btn" %>
-
-      <%= link_to "cbt-basic", new_cbt_basic_path, class:"main-contents__btn" %>
-
-      <%= link_to "cbt-basic一覧", lists_cbt_basics_path, class:"main-contents__btn" %>
 
     </div>
   </div>
