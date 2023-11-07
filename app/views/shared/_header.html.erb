@@ -6,7 +6,8 @@
         <div class="navbar__lists">エクササイズ▼</div>
       </div>
       <ul class="navbar-memo hidden" id="navbar-pulldown">
-        <%= link_to new_monitoring_path do %><li class="pulldown-list">悩みを受け止める</li><% end %>
+        <%= link_to new_cbt_basic_path do %><li class="pulldown-list">モニタリング</li><% end %>
+        <%= link_to new_monitoring_path do %><li class="pulldown-list">認知再構成法</li><% end %>
       </ul>
     </div>
     <div id="navbar02">
@@ -14,7 +15,8 @@
         <div class="navbar__lists">メモ一覧▼</div>
       </div>
       <ul class="navbar-memo hidden" id="navbar-pulldown02">
-        <%= link_to lists_monitorings_path do %><li class="pulldown-list">悩みを受け止める</li><% end %>
+        <%= link_to lists_cbt_basics_path do %><li class="pulldown-list">モニタリング</li><% end %>
+        <%= link_to lists_monitorings_path do %><li class="pulldown-list">認知再構成法</li><% end %>
       </ul>
     </div>
   </div>

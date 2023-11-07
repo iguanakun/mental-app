@@ -39,15 +39,25 @@
     <div class="main-menu__title">エクササイズ</div>
   </div>
   <div class="main-contents">
+    <div class="main-contents-wrapper">
+      <div class="main-item__circle"></div>
+      <div class="main-contents__title">モニタリング</div>
+    </div>
     <div class="main-contents-info">
-      <span class="main-contents__text">
-      認知行動療法の基本モデルに沿ったワーク
-      </span>
+      <div class="main-contents__text">
+      認知行動療法の基本モデルに沿って、ストレスを理解・観察するためのワーク
+      </div>
       <%= link_to "エクササイズをする", new_cbt_basic_path, class:"main-contents__btn" %>
-
-      基本モデルをベースに、思考の分析を深めるワーク
+    </div>
+    <div class="main-contents-wrapper">
+      <div class="main-item__circle"></div>
+      <div class="main-contents__title">認知再構成法</div>
+    </div>
+    <div class="main-contents-info">
+      <div class="main-contents__text">
+        自分を苦しめる思考を分析し、より役立つ考え方を自ら作り出すためのワーク
+      </div>
       <%= link_to "エクササイズをする", new_monitoring_path, class:"main-contents__btn" %>
-
     </div>
   </div>
 </div>
