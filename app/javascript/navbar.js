@@ -33,8 +33,10 @@ function dropdown (button_id, lists_id, nav_target, bgcolor){
 function navbar (){
   /* エクササイズメニューの開閉 */
   dropdown ('navbar-items', 'navbar-pulldown','#navbar01','#96dc78');
-  /* メモ一覧メニューの開閉 */
+  /* コースメニューの開閉 */
   dropdown ('navbar-items02', 'navbar-pulldown02','#navbar02','#e5e5e5');
+  /* メモ一覧メニューの開閉 */
+  dropdown ('navbar-items03', 'navbar-pulldown03','#navbar03','#e5e5e5');
 };
 
 // window.addEventListener('turbo:load', navbar);

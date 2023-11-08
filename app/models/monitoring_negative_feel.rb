@@ -23,14 +23,5 @@ class MonitoringNegativeFeel < ApplicationRecord
     end
 
     return rtn_record
-
-    # # valueが最大のkeyを取得
-    # max_count = negative_id_counts.values.max
-    # max_id = negative_id_counts.key(max_count)
-
-    # # keyを持つレコードを取得
-    # record = NegativeFeel.find_by(id: max_id)
-
-    # return { negative_feel_name: record.negative_feel_name, max_count: max_count }
   end
 end
