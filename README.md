@@ -2,7 +2,7 @@
 自分でできる心理療法
 
 # アプリケーション概要
-心理療法を使い、セルフケアができる。
+認知行動療法によるセルフケアができる。
 
 # URL
 [https://mental-app.onrender.com](https://mental-app.onrender.com/)
@@ -26,7 +26,8 @@
 答えが出ない問題に対して、「悩むのは当たり前」という前提で、問題を分析し、対処する方法を世の中に提供したい、という思いからアプリを開発した。
 
 # 実装予定の機能
-今後タグ機能、Googleアカウント連携機能を実装予定。
+- レスポンシブデザイン対応
+- SNSアカウント連携機能
 
 # データベース設計
 [![Image from Gyazo](https://i.gyazo.com/25eef7f0c84dc7d000f22525ce10ce95.png)](https://gyazo.com/25eef7f0c84dc7d000f22525ce10ce95)
