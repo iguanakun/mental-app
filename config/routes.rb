@@ -22,7 +22,9 @@ Rails.application.routes.draw do
     collection do
       get 'content1'
       get 'content1/page1', to: 'work_care#page1'
-
+      get 'content1/page2', to: 'work_care#page2'
+      get 'content1/page3', to: 'work_care#page3'
+      get 'content1/page4', to: 'work_care#page4'
     end
   end
 end
