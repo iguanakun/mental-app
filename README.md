@@ -30,10 +30,12 @@
 - SNSアカウント連携機能
 
 # データベース設計
-[![Image from Gyazo](https://i.gyazo.com/25eef7f0c84dc7d000f22525ce10ce95.png)](https://gyazo.com/25eef7f0c84dc7d000f22525ce10ce95)
+機能追加に伴い、修正中
+<!-- [![Image from Gyazo](https://i.gyazo.com/25eef7f0c84dc7d000f22525ce10ce95.png)](https://gyazo.com/25eef7f0c84dc7d000f22525ce10ce95) -->
 
 # 画面遷移図
-[![Image from Gyazo](https://i.gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc.png)](https://gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc)
+機能追加に伴い、修正中
+<!-- [![Image from Gyazo](https://i.gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc.png)](https://gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc) -->
 
 # 開発環境
 - フロントエンド：HTML/CSS、JavaScript
