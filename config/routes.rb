@@ -28,5 +28,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :cbt_basics, only: [:index] 
+  resources :memos, only: [:index] 
 end
