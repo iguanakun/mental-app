@@ -2,7 +2,41 @@
 <%= render "shared/header-margin" %>
 
 <div class="monitor-lists" id="lists">
+  <!-- 統計 -->
+  <div class="monitor-statistics-list">
+    <div class="monitor-list-content">
+      <div class="monitor-list-item">統計</div>
+      <div class="monitor-statistics-wrapper">
+        <div class="monitor-statistics__negative">
+          上位3つのネガティブな感情
+          <ol class="monitor-statistics__lists">
+            <% @negative_feels.each do |list| %>
+              <li>
+                <%= list[:negative_feel_name] %>
+                :
+                <%= list[:count] %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+        <div class="monitor-statistics__distortion">
+          上位3つの思考のゆがみ
+          <ol class="monitor-statistics__lists">
+            <% @distortions.each do |list| %>
+              <li>
+                <%= list[:distortion_name] %>
+                :
+                <%= list[:count] %>
+              </li>
+            <% end %>
+          </ol>
+        </div>
+        <div class="monitor-statistics__distortion-info"></div>
+      </div>
+    </div>
+  </div>
 
+<!-- 一覧表示 -->
 <% @lists.each do |list| %>
 
   <% if list.data_type == 'cbt_basic' %>
