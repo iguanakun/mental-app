@@ -12,7 +12,7 @@ class CbtBasicsController < ApplicationController
     
     if @cbt_basic_form.valid?
       @cbt_basic_form.save
-      redirect_to lists_cbt_basics_path
+      redirect_to memos_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -34,7 +34,7 @@ class CbtBasicsController < ApplicationController
 
     if @cbt_basic_form.valid?
       @cbt_basic_form.update(cbt_basic_form_params, @cbt_basic)
-      redirect_to lists_cbt_basics_path
+      redirect_to memos_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class CbtBasicsController < ApplicationController
   def destroy
     cbt_basic = CbtBasic.find(params[:id])
     cbt_basic.destroy
-    redirect_to lists_cbt_basics_path
+    redirect_to memos_path
   end
 
   def lists

@@ -25,7 +25,7 @@ class MonitoringsController < ApplicationController
     
     if @monitoring_form.valid?
       @monitoring_form.save
-      redirect_to lists_monitorings_path
+      redirect_to memos_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -57,7 +57,7 @@ class MonitoringsController < ApplicationController
 
     if @monitoring_form.valid?
       @monitoring_form.update(monitoring_form_params, @monitoring, session_params)
-      redirect_to lists_monitorings_path
+      redirect_to memos_path
     else
       render :edit, status: :unprocessable_entity
     end
@@ -66,7 +66,7 @@ class MonitoringsController < ApplicationController
   def destroy
     monitoring = Monitoring.find(params[:id])
     monitoring.destroy
-    redirect_to lists_monitorings_path
+    redirect_to memos_path
   end
 
   def lists
