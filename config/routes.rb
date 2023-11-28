@@ -27,4 +27,6 @@ Rails.application.routes.draw do
       get 'content1/page4', to: 'work_care#page4'
     end
   end
+
+  resources :memos, only: [:index] 
 end

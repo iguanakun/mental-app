@@ -30,8 +30,7 @@
 - SNSアカウント連携機能
 
 # データベース設計
-機能追加に伴い、修正中
-<!-- [![Image from Gyazo](https://i.gyazo.com/25eef7f0c84dc7d000f22525ce10ce95.png)](https://gyazo.com/25eef7f0c84dc7d000f22525ce10ce95) -->
+[![Image from Gyazo](https://i.gyazo.com/c1c49596c21ee129d376aecc1515f4f0.png)](https://gyazo.com/c1c49596c21ee129d376aecc1515f4f0)
 
 # 画面遷移図
 機能追加に伴い、修正中

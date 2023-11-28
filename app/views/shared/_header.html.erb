@@ -18,15 +18,17 @@
         <%= link_to content1_work_care_index_path do %><li class="pulldown-list">仕事上の悩み</li><% end %>
       </ul>
     </div>
-    <div id="navbar03">
+    <!-- <div id="navbar03"> -->
+      <!-- <div class="navbar" id="navbar-items03"> -->
       <div class="navbar" id="navbar-items03">
-        <div class="navbar__lists">メモ一覧▼</div>
+          <%= link_to "メモ一覧", memos_path, class:"navbar__lists" %>
+        <!-- <div class="navbar__lists">メモ一覧▼</div> -->
       </div>
-      <ul class="navbar-memo hidden" id="navbar-pulldown03">
+      <!-- <ul class="navbar-memo hidden" id="navbar-pulldown03">
         <%= link_to lists_cbt_basics_path do %><li class="pulldown-list">モニタリング</li><% end %>
         <%= link_to lists_monitorings_path do %><li class="pulldown-list">認知再構成法</li><% end %>
-      </ul>
-    </div>
+      </ul> -->
+    <!-- </div> -->
     
   </div>
   <div class="header-user">

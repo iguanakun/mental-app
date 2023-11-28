@@ -36,7 +36,7 @@ function navbar (){
   /* コースメニューの開閉 */
   dropdown ('navbar-items02', 'navbar-pulldown02','#navbar02','#e5e5e5');
   /* メモ一覧メニューの開閉 */
-  dropdown ('navbar-items03', 'navbar-pulldown03','#navbar03','#e5e5e5');
+  // dropdown ('navbar-items03', 'navbar-pulldown03','#navbar03','#e5e5e5');
 };
 
 // window.addEventListener('turbo:load', navbar);
