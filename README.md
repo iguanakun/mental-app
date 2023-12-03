@@ -33,8 +33,7 @@
 [![Image from Gyazo](https://i.gyazo.com/c1c49596c21ee129d376aecc1515f4f0.png)](https://gyazo.com/c1c49596c21ee129d376aecc1515f4f0)
 
 # 画面遷移図
-機能追加に伴い、修正中
-<!-- [![Image from Gyazo](https://i.gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc.png)](https://gyazo.com/91fc6cdbd92d0a2a7fb7f5ab870a44cc) -->
+[![Image from Gyazo](https://i.gyazo.com/f459b2c37c729f503ab1e5bbc7348334.png)](https://gyazo.com/f459b2c37c729f503ab1e5bbc7348334)
 
 # 開発環境
 - フロントエンド：HTML/CSS、JavaScript
