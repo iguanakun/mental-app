@@ -57,7 +57,8 @@ class MonitoringForm
     params = params.merge(session)
 
     #paramsの中の各情報を削除。同時に、返り値として各情報を変数に代入
-    input_tags = params.delete(:tag_name).squish.split if params.delete(:tag_name).present?
+    # input_tags = params.delete(:tag_name)&.squish&.split if params.delete(:tag_name).present?
+    input_tags = params.delete(:tag_name)&.squish&.split
     input_negative_feels = params.delete(:negative_feel_name)
     input_positive_feels = params.delete(:positive_feel_name)
     input_distortions = params.delete(:distortion_name)
