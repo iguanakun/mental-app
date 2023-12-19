@@ -57,7 +57,8 @@ class MonitoringForm
     params = params.merge(session)
 
     #paramsの中の各情報を削除。同時に、返り値として各情報を変数に代入
-    input_tags = params.delete(:tag_name).squish.split if params.delete(:tag_name).present?
+    # input_tags = params.delete(:tag_name)&.squish&.split if params.delete(:tag_name).present?
+    input_tags = params.delete(:tag_name)&.squish&.split
     input_negative_feels = params.delete(:negative_feel_name)
     input_positive_feels = params.delete(:positive_feel_name)
     input_distortions = params.delete(:distortion_name)
@@ -100,7 +101,7 @@ class MonitoringForm
 
   def required_either_columns
     return if ( negative_feel_name.present? || positive_feel_name.present? || fact.present? || mind.present? ||
-                distortion_name.present? || why_correct.present? || why_doubt.present? || new_thought.present? )
+                distortion_name.present? || why_correct.present? || why_doubt.present? || new_thought.present? || tag_name.present?)
     errors.add(:base, 'いずれかひとつの項目を入力してください。')
   end
 end
