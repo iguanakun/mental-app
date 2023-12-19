@@ -44,12 +44,12 @@ class MonitoringsController < ApplicationController
 
   def update
     @monitoring_form = MonitoringForm.new(monitoring_form_params)
-    # session_params ={ 
-    #   negative_feel_name: session[:negative_feel_name],
-    #   positive_feel_name: session[:positive_feel_name],
-    #   fact: session[:fact],
-    #   mind: session[:mind]
-    # }
+    session_params ={ 
+      negative_feel_name: session[:negative_feel_name],
+      positive_feel_name: session[:positive_feel_name],
+      fact: session[:fact],
+      mind: session[:mind]
+    }
     @monitoring_form.negative_feel_name = session[:negative_feel_name]
     @monitoring_form.positive_feel_name = session[:positive_feel_name]
     @monitoring_form.fact = session[:fact]
@@ -61,7 +61,7 @@ class MonitoringsController < ApplicationController
     session.delete(:mind)
 
     if @monitoring_form.valid?
-      @monitoring_form.update(monitoring_form_params, @monitoring)
+      @monitoring_form.update(monitoring_form_params, @monitoring, session_params)
       redirect_to memos_path
     else
       render :edit, status: :unprocessable_entity

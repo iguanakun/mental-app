@@ -46,7 +46,7 @@ class MonitoringForm
     end
   end
 
-  def update(params, monitoring)
+  def update(params, monitoring, session)
     #一度中間テーブルの紐付けを消す
     monitoring.monitoring_tag_relations.destroy_all
     monitoring.monitoring_negative_feels.destroy_all
@@ -54,7 +54,7 @@ class MonitoringForm
     monitoring.monitoring_distortion_relations.destroy_all
 
     # paramsとsessionを結合
-    # params = params.merge(session)
+    params = params.merge(session)
 
     #paramsの中の各情報を削除。同時に、返り値として各情報を変数に代入
     # input_tags = params.delete(:tag_name)&.squish&.split if params.delete(:tag_name).present?
